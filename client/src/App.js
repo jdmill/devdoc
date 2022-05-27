@@ -13,8 +13,10 @@ function App() {
   return ( 
     <ApolloProvider client={client}>
       <Router>
-        <Route path="/" element={<LandingPage />}/>
-        <Route path="/app/" element={<Container />}/>
+        <Routes>
+          <Route path="/" element={<LandingPage />}/>
+          <Route path="/app/" element={<Container />}/>
+        </Routes>
       </Router>
     </ApolloProvider>
   );
