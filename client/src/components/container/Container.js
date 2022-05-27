@@ -12,11 +12,13 @@ function Container() {
     return (
         <Router>
             <Header />
-            <Route path="/app/signup" element={<SignUp />}/>
-            <Route path="/app/login" element={<Login />}/>
-            <Route path="/app/projects" element={<MyProjects />}/>
-            <Route path="/app/projects/:projectId" element={<ProjectEditor />}/>
-            <Route path="/app/projects/:projectId/:componentId" element={<ComponentEditor />}/>
+            <Routes>
+                <Route path="/app/signup" element={<SignUp />}/>
+                <Route path="/app/login" element={<Login />}/>
+                <Route path="/app/projects" element={<MyProjects />}/>
+                <Route path="/app/projects/:projectId" element={<ProjectEditor />}/>
+                <Route path="/app/projects/:projectId/:componentId" element={<ComponentEditor />}/>
+            </Routes>
             <Footer />
         </Router>
     )

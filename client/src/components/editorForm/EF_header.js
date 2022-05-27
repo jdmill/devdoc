@@ -16,13 +16,13 @@ function EF_header() {
             location: '#contact'
         }
     ]; // TODO: remove this placeholder and use the above commented out logic
-    const userLinks = [links,setLinks] = useState(placeholderLinks);
+    const [links,setLinks] = useState(placeholderLinks);
 
     // TODO: make submitting the form update the user component
     // User.findOneAndUpdate(projectId, component ID)
     // const compTitle = [title,setTitle] = useState(User.findById(:projectID/:componentId));
 
-    const title = "Placeholder"; // TODO: remove this palceholder and use the above commented out logic
+    const title = "Placeholder"; // TODO: remove this placeholder and use the above commented out logic
 
     const handleAddNav = () => {
         const newLink ={ title: '', location: '' };
@@ -35,12 +35,13 @@ function EF_header() {
 
     const submitChanges = (e) => {
         e.preventDefault();
-        // TODO: add a mutation request for user component, findOneAndUpdate(_id);
+        // TODO: add a mutation request for user/project/component, findOneAndUpdate(_id);
         window.location.href = '/app/projects/';
     };
 
     return (
         <form action="">
+            <h2>A form for editing a footer component</h2>
             <label htmlFor="title" ></label>
             <input className="full-width-input" id="title" type="text" value={title}/>
         {links.map((link) => {
