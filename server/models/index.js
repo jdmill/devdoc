@@ -1,5 +1,5 @@
 const User = require("./User");
-// const Project = require("./Project");
-// const Component = require("./Component");
+const Project = require("./Project");
+const Component = require("./Component");
 
-module.exports = { User };
+module.exports = { User, Project, Component };
