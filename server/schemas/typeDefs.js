@@ -10,30 +10,39 @@ const typeDefs = gql`
 
   type Project {
     _id: ID
-    username: String
     projectTitle: String
     componentArray: [Component]
   }
 
   type Component {
-    _id: ID
+    _id: ID!
     title: String
-    compType: String
+    compType: String!
+    imageUrl: String
+    text: String
+    contact: Boolean
   }
 
   type Query {
-    user(username: String): User
+    user(user_id: ID!): User
     users: [User]
-    project(username: String): Project
-    componentArray(project: ID!): [Component]
-    component(_id: ID!): Component
+    project(project_id: ID!): Project
+    component(component_id: ID!): Component
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): User
-    addProject(projectTitle: String!, username: String!): Project
-    removeUser(username: ID!): User
-    removeProject(username: ID!, projectTitle: String!): Project
+    addProject(projectTitle: String!, user_id: ID!): Project
+    addComponent(
+      _id: ID!
+      title: String
+      compType: String!
+      imageUrl: String
+      text: String
+      contact: Boolean
+    ): Component
+    removeUser(user_id: ID!): User
+    removeProject(project_id: ID!): Project
   }
 `;
 

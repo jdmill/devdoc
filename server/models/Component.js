@@ -14,8 +14,12 @@ const componentSchema = new Schema({
       enum: ["header", "article-photo", "contact", "footer"],
     },
   },
-  links: [{
-    linkName:String, url: String}],
+  links: [
+    {
+      linkName: String,
+      url: String,
+    },
+  ],
   createdAt: {
     type: Date,
     default: Date.now,
@@ -25,17 +29,17 @@ const componentSchema = new Schema({
     default: Date.now,
   },
   imageUrl: {
-      type: String
+    type: String,
   },
   text: {
-      type: String,
-      minlength: 12,
-      maxlength: 255
+    type: String,
+    minlength: 12,
+    maxlength: 255,
   },
   contact: {
-      type: Boolean,
-      default: false
-  }
+    type: Boolean,
+    default: false,
+  },
 });
 
 const Component = model("Component", componentSchema);
