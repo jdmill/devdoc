@@ -1,7 +1,65 @@
 import { gql } from "@apollo/client";
 
-export const QUERY_ALL_USERS = gql``;
+//Queries all users with subdocuments
+export const QUERY_ALL_USERS = gql`
+  query Query {
+    users {
+      _id
+      username
+      email
+      projects {
+        _id
+        projectTitle
+        componentArray {
+          _id
+          title
+          compType
+          imageUrl
+          text
+          contact
+        }
+      }
+    }
+  }
+`;
 
-export const QUERY_USER = gql``;
+//queries single user with all projects
+export const QUERY_USER = gql`
+  query Query($userId: ID!) {
+    user(user_id: $userId) {
+      _id
+      username
+      email
+      projects {
+        _id
+        projectTitle
+        componentArray {
+          _id
+          title
+          compType
+          imageUrl
+          text
+          contact
+        }
+      }
+    }
+  }
+`;
 
-export const QUERY_USER_PROJECTS = gql``;
+//queries a single project
+export const QUERY_PROJECTS = gql`
+  query Project($projectId: ID!) {
+    project(project_id: $projectId) {
+      _id
+      projectTitle
+      componentArray {
+        _id
+        title
+        compType
+        imageUrl
+        text
+        contact
+      }
+    }
+  }
+`;
