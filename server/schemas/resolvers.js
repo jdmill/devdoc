@@ -52,6 +52,7 @@ const resolvers = {
       return await Project.findOneAndDelete({ project_id });
     },
     //creates a component and pushes it to a projects component array
+    //~~~~~Links need to be added~~~~~~
     addComponent: async (
       parent,
       { title, compType, links, imageUrl, text, contact, project_id }

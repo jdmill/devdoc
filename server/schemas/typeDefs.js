@@ -1,5 +1,7 @@
 const { gql } = require("apollo-server-express");
 
+//~~~~~~~ Links need to be added to this mutation~~~~~~
+//~~~~~~~ We need to add links here ~~~~~~~
 const typeDefs = gql`
   type User {
     _id: ID
