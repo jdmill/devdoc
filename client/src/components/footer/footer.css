@@ -1,0 +1,11 @@
+.footer__flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contributions,
+.copywrite {
+    color: #fff;
+    font-size: 1.125rem;
+    font-weight: 600;;
+}

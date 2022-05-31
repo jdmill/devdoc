@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../utils/mutations";
+import styles from './login.css';
 
 import Auth from "../../utils/auth";
 
@@ -42,43 +43,45 @@ function Login(props) {
   };
 
   return (
-    <section className="login__card">
-      <div>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="loginEmail">Email</label>
-          <input
-            id="loginEmail"
-            type="text"
-            name="email"
-            placeholder="Email Here"
-            onChange={handleChange}
-          />
-          <div>
-            <label htmlFor="loginPass">Password</label>
+    <div className="gray__bg">
+      <section className="login__card">
+        <div>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="loginEmail" className="first__label">Email</label>
             <input
-              id="loginPass"
-              type="password"
-              name="password"
-              placeholder="Password Here"
+              id="loginEmail"
+              type="text"
+              name="email"
+              placeholder="Email Here"
               onChange={handleChange}
             />
-          </div>
-          {error ? (
             <div>
-              <p className="error-text">
-                The provided credentials are incorrect
-              </p>
+              <label htmlFor="loginPass">Password</label>
+              <input
+                id="loginPass"
+                type="password"
+                name="password"
+                placeholder="Password Here"
+                onChange={handleChange}
+              />
             </div>
-          ) : null}
-          <div>
-            <input type="submit" value="Log In" onSubmit={handleSubmit} />
-          </div>
-        </form>
-        <p>
-          Dont already have an account? <Link to="/app/signup">Sign up</Link>
-        </p>
-      </div>
-    </section>
+            {error ? (
+              <div>
+                <p className="error-text">
+                  The provided credentials are incorrect
+                </p>
+              </div>
+            ) : null}
+            <div>
+              <input className="login__btn" type="submit" value="Log In" onSubmit={handleSubmit} />
+            </div>
+          </form>
+        </div>
+      </section>
+      <p className="prompt">
+            Dont already have an account? <Link className="prompt__link" to="/app/signup">Sign up</Link>
+          </p>
+    </div>
   );
 }
 

@@ -5,7 +5,7 @@ import styles from './container.css';
 
 function Container() {
     return (
-        <div>
+        <div className='app__view'>
             <Header />
             <Outlet />
             <Footer />

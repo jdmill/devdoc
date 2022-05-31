@@ -1,0 +1,25 @@
+.app__view {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header,
+footer {
+    background-color: var(--clr-primary);
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    padding: .8em 2em;
+}
+
+.container {
+    width: 100%;
+}
+
+.header__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

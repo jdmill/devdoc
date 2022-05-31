@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import styles from './navbar.css';
 
 function Navbar() {
 
@@ -6,9 +7,9 @@ function Navbar() {
 
     return (
         <ul className="nav__list">
-            <Link to="/" >Home</Link>
-            <Link to="/app/projects" >My Projects</Link>
-            <Link to="/" /*onClick={handleLogout}*/ >Logout</Link>
+            <Link className="nav__item" to="/" >Home</Link>
+            <Link className="nav__item" to="/app/projects" >My Projects</Link>
+            <Link className="nav__item" to="/" /*onClick={handleLogout}*/ >Logout</Link>
         </ul>
     );
 };
