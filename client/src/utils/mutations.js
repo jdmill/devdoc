@@ -33,7 +33,7 @@ export const ADD_PROJECT = gql`
 
 //We will have to add separate mutations for each component depending on what params are required
 //need to fix links issues for nav
-export const ADD_COMPONENT_HEADER = gql``;
+// export const ADD_COMPONENT_HEADER = gql``;
 
 //hero component Mutation
 export const ADD_COMPONENT_HERO = gql`

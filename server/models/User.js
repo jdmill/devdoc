@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const Project = require("./Project");
 
 // Schema to create User model
-const usersSchema = new Schema({
+const userSchema = new Schema({
   username: {
     type: String,
     required: true,
@@ -15,7 +15,7 @@ const usersSchema = new Schema({
     required: true,
     unique: true,
     trim: true,
-    match: [/.+@.+\..+/, 'Must match an email address!'],
+    match: [/.+@.+\..+/, "Must match an email address!"],
   },
   password: {
     type: String,
@@ -26,8 +26,8 @@ const usersSchema = new Schema({
 });
 
 // set up pre-save middleware to create password
-userSchema.pre('save', async function (next) {
-  if (this.isNew || this.isModified('password')) {
+userSchema.pre("save", async function (next) {
+  if (this.isNew || this.isModified("password")) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
   }
@@ -41,6 +41,6 @@ userSchema.methods.passwordCheck = async function (password) {
 };
 
 // Initialize our User model
-const User = model("User", usersSchema);
+const User = model("User", userSchema);
 
 module.exports = User;
