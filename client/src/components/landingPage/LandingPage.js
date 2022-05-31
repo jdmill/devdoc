@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import doctor from '../../assets/image/doctor-HR.jpeg'
 
 function LandingPage() {
@@ -7,7 +8,7 @@ function LandingPage() {
             <h2>A website generation tool
             for the hard working
             entrepreneur</h2>
-            <button>Get Started</button>
+            <Link to="/app/login" className="splash__button">Get Started</Link>
             <img style={ { width: '50%', height:'auto' } } src={doctor} alt="Friendly cartoon doctor smiling." />
         </main>
     );
