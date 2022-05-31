@@ -1,10 +1,11 @@
 import Nav from '../navbar/Navbar';
+import styles from './header.css';
 
 function Header() {
     return (
         <header>
             <div className="container">
-                <div className="headerContent">
+                <div className="header__content">
                     <h1>Dev Doctor</h1>
                     <Nav />
                 </div>

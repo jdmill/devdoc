@@ -1,13 +1,15 @@
+import styles from './footer.css'
+
 function Footer() {
     return (
-        <div className="footer">
+        <footer className="footer">
             <div className="container">
-                <div className="footer_flex">
-                    <div className="copyrite"> Dev Doctor 2022©</div>
-                    <div className="contributions"> Made with ❤️ by Christian Carnevale, Jonathan Miller, Joseph Pugmire, & chris Rowe</div>
+                <div className="footer__flex">
+                    <div className="copywrite"> <p>Dev Doctor 2022©</p></div>
+                    <div className="contributions"> <p>By Christian Carnevale, Jonathan Miller, Joseph Pugmire, & Chris Rowe</p></div>
                 </div>
             </div>
-        </div>
+        </footer>
     );
 };
 

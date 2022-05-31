@@ -10,8 +10,6 @@ body {
   background: none;
   z-index: 2;
   width: clamp(10em, 55%, 60em);
-  display: flex;
-  flex-direction: column;
 }
 
 h1 {
@@ -34,12 +32,11 @@ h2 {
 }
 
 button {
-  align-self: center;
   font-family: var(--fnt-splash);
   text-transform: uppercase;
   color: #fff;
-  font-size: 2rem;
-  font-weight: 500;
+  font-size: clamp( 1.25rem, 5vw, 2.25rem);
+  font-weight: 600;
   background-color: var(--clr-secondary);
   border: none;
   padding: .3em 1.5em;
@@ -94,9 +91,21 @@ button:hover {
 @media screen and ( max-width:750px ) {
   .hero {
     transform: translateX(50%);
+
   }
 
   .conditional__br {
     display: none;
+  }
+  .info {
+    transition: all 280ms linear ;
+    left: 7.5vw;
+    top: 5vh;
+    width: 80%;
+    overflow-y: auto;
+  }
+
+  body {
+    overflow: hidden;
   }
 }
