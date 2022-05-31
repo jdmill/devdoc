@@ -36,6 +36,7 @@ const typeDefs = gql`
     users: [User]
     project(project_id: ID!): Project
     component(component_id: ID!): Component
+    loggedInUser: User
   }
 
   # addUser takes in user information as input and returns an Auth object
