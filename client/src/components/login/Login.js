@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../utils/mutations';
 
-import Auth from '../utils/auth';
+import Auth from '../../utils/auth';
 
 function Login( props ) {
     
@@ -21,7 +21,7 @@ function Login( props ) {
     };
   
     // submit form
-    const handleFormSubmit = async (event) => {
+    const handleSubmit = async (event) => {
       event.preventDefault();
       console.log(formState);
       try {
@@ -51,7 +51,7 @@ function Login( props ) {
                     id="loginEmail"
                     type="text"
                     name="email"
-                    value={email}
+                    value={formState.email}
                     onChange={handleChange}
                 />
                 <label htmlFor="loginPass">
@@ -61,7 +61,7 @@ function Login( props ) {
                     id="loginPass"
                     type="password"
                     name="password"
-                    value={password}
+                    value={formState.password}
                     onChange={handleChange}
                 />
                 <input
