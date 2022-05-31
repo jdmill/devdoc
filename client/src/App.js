@@ -2,7 +2,11 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandingPage from "./components/landingPage/LandingPage";
 import Container from "./components/container/Container";
-import Login from "./components/login/Login";
+import SignUp from './components/signUp/SignUp';
+import Login from './components/login/Login';
+import MyProjects from './components/myProjects/MyProjects';
+import ProjectEditor from './components/projectEditor/ProjectEditor';
+import ComponentEditor from './components/componentEditor/ComponentEditor';
 
 const client = new ApolloClient({
   uri: "/graphql",
@@ -15,8 +19,13 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/app/" element={<Container />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="app" element={<Container />}>
+            <Route path="signup" element={<SignUp />}/>
+            <Route path="login" element={<Login />}/>
+            <Route path="projects" element={<MyProjects />}/>
+            <Route path="projects/:projectId" element={<ProjectEditor />}/>
+            <Route path="projects/:projectId/:componentId" element={<ComponentEditor />}/>
+          </Route>
         </Routes>
       </Router>
     </ApolloProvider>
