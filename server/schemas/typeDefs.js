@@ -10,6 +10,12 @@ const typeDefs = gql`
     projects: [Project]
   }
 
+  # Auth type to handle returning data from a user creating or user login
+  type Auth {
+    token: ID!
+    user: User
+  }
+
   type Project {
     _id: ID
     projectTitle: String
@@ -32,8 +38,10 @@ const typeDefs = gql`
     component(component_id: ID!): Component
   }
 
+  # addUser takes in user information as input and returns an Auth object
   type Mutation {
-    addUser(username: String!, email: String!, password: String!): User
+    addUser(username: String!, email: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
     addProject(projectTitle: String!, user_id: ID!): Project
     addComponent(
       project_id: ID!
