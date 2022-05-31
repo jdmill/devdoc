@@ -13,7 +13,7 @@ function LandingPage() {
       <h1>Dev Doctor</h1>
       <h2>A website generation tool for the hard working entrepreneur</h2>
       <button>
-        <Link to="/login">Get Started</Link>
+        <Link to="/app/login">Get Started</Link>
       </button>
     </main>
   );
