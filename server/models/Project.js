@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const Component = require("./Component");
 
 const projectSchema = new Schema({
   projectTitle: {
@@ -14,7 +15,7 @@ const projectSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  componentArray: [{ type: Schema.Types.ObjectId, ref: "Component" }],
+  componentArray: [Component.schema],
 });
 
 const Project = model("Project", projectSchema);
