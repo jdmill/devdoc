@@ -1,0 +1,72 @@
+.splash {
+  background: linear-gradient(to right,var(--tertiary),var(--primary),var(--primary), transparent);
+  background-repeat: no-repeat;
+  z-index: -1;
+  background-size: 100vw;
+  height: 100vh;
+  overflow: auto;
+}
+
+h1 {
+  margin: 0;
+  position: relative;
+  top: 25%;
+  left: 20%
+}
+
+h2 {
+  position: relative;
+  top: 25%;
+  left: 20%;
+}
+
+button {
+  position: relative;
+    top: 25%;
+    left: 20%;
+}
+
+.splashImg {
+  z-index: -2;
+  position: absolute;
+  right: 0%;
+  width: auto; 
+  height: 100vh;
+  overflow: auto;
+}
+
+/* this changes the gradient */
+@media screen and (max-width: 1600px) {
+  .splash {
+      background: linear-gradient(to right, var(--tertiary), var(--primary), transparent);
+    }
+
+    /* .splashImg {
+      right: -5%
+    } */
+}
+
+
+@media screen and (max-width: 1080px) {
+
+  .splash {
+      background: linear-gradient(to right, var(--tertiary), var(--primary), transparent);
+    }
+    
+        .splashImg {
+          position: fixed;
+          right: -25%;
+        }
+}
+
+@media screen and (max-width: 700px) {
+  
+  .splash {
+      background: linear-gradient(to right, var(--tertiary), transparent);
+    }
+  .splashImg {
+      position: fixed;
+      right: -60%;
+    }
+
+}

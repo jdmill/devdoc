@@ -1,21 +1,22 @@
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import LandingPage from './components/landingPage/LandingPage';
-import Container from './components/container/Container';
-
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LandingPage from "./components/landingPage/LandingPage";
+import Container from "./components/container/Container";
+import Login from "./components/login/Login";
 
 const client = new ApolloClient({
-  uri: '/graphql',
+  uri: "/graphql",
   cache: new InMemoryCache(),
 });
 
 function App() {
-  return ( 
+  return (
     <ApolloProvider client={client}>
       <Router>
         <Routes>
-          <Route path="/" element={<LandingPage />}/>
-          <Route path="/app/" element={<Container />}/>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/app/" element={<Container />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </Router>
     </ApolloProvider>
