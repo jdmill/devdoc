@@ -15,8 +15,8 @@ const resolvers = {
     loggedInUser: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id });
-      };
-      throw new AuthenticationError('You need to be logged in!');
+      }
+      throw new AuthenticationError("You need to be logged in!");
     },
 
     // queries by the projectId
@@ -26,9 +26,10 @@ const resolvers = {
   },
   Mutation: {
     // Authorization added upon account creation
-    addUser: async (parent, { username, email, password }) => {
-      const user = await User.create({ username, email, password });
+    addUser: async (parent, args) => {
+      const user = await User.create(args);
       const token = signToken(user);
+
       return { token, user };
     },
     // Authorization and Login
@@ -36,29 +37,30 @@ const resolvers = {
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw new AuthenticationError('This account could not be found');
-      };
+        throw new AuthenticationError("This user does not exist");
+      }
 
-      const authorized = await User.passwordCheck(password);
+      const correctPw = await user.isCorrectPassword(password);
 
-      if (!authorized) {
-        throw new AuthenticationError('Incorrect password!');
-      };
+      if (!correctPw) {
+        throw new AuthenticationError("Incorrect credentials");
+      }
 
       const token = signToken(user);
+
       return { token, user };
     },
     // updates user with allowed args
     updateUser: async (parent, args, { user_id }, context) => {
-      if(context.user) {
+      if (context.user) {
         return await User.findOneAndUpdate({ user_id }, args, { new: true });
-      };
+      }
     },
     // deletes user
     removeUser: async (parent, args, { user_id }, context) => {
-      if(context.user) {
+      if (context.user) {
         return await User.findOneAndDelete({ user_id });
-      };
+      }
     },
     // creates a project and pushes it to the users project array
     addProject: async (parent, { projectTitle, user_id }, context) => {
@@ -86,7 +88,7 @@ const resolvers = {
           }
         );
         return await Project.findOneAndDelete({ project_id });
-      };
+      }
     },
     // creates a component and pushes it to a projects component array
     // ~~~~~Links need to be added~~~~~~
@@ -114,7 +116,7 @@ const resolvers = {
         );
 
         return component;
-      };
+      }
     },
     removeComponent: async (parent, { project_id, component_id }, context) => {
       if (context.user) {
@@ -125,7 +127,7 @@ const resolvers = {
           },
           { new: true }
         );
-      };
+      }
     },
   },
 };
