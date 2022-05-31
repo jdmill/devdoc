@@ -1,10 +1,11 @@
 :root {
-  --primary: #c6e2ed;
-  --secondary: #81b2d3;
-  --tertiary: #79abce;
-  --light: #fafafa;
-  --dark: #57585a;
-
+  --clr-primary: #83B7C8;
+  --clr-secondary: #7294C8;
+  --clr-light: #fafafa;
+  --clr-dark: #57585a;
+  --clr-shadow: #00000030;
+  --fnt-splash: 'Roboto', sans-serif;
+  --fnt-page: 'Open Sans', sans-serif;
 }
 
 body {
