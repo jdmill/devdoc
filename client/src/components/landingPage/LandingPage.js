@@ -1,5 +1,6 @@
 import doctor from "../../assets/image/doctor-HRCustom.jpeg";
 import "./landingPage.css";
+import { Link } from "react-router-dom";
 
 function LandingPage() {
   return (
@@ -11,7 +12,9 @@ function LandingPage() {
       />
       <h1>Dev Doctor</h1>
       <h2>A website generation tool for the hard working entrepreneur</h2>
-      <button>Get Started</button>
+      <button>
+        <Link to="/login">Get Started</Link>
+      </button>
     </main>
   );
 }

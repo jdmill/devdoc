@@ -9,6 +9,21 @@
 
 h1 {
   margin: 0;
+  position: relative;
+  top: 25%;
+  left: 20%
+}
+
+h2 {
+  position: relative;
+  top: 25%;
+  left: 20%;
+}
+
+button {
+  position: relative;
+    top: 25%;
+    left: 20%;
 }
 
 .splashImg {
@@ -45,6 +60,10 @@ h1 {
 }
 
 @media screen and (max-width: 700px) {
+  
+  .splash {
+      background: linear-gradient(to right, var(--tertiary), transparent);
+    }
   .splashImg {
       position: fixed;
       right: -60%;
