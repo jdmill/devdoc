@@ -1,23 +1,44 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from '../../utils/mutations';
 
-function Login() {
+import Auth from '../utils/auth';
+
+function Login( props ) {
     
-    const [email,setEmail] = useState('');
-    const [password,setPassword] = useState('');
-
-    const handleChange = (e) => {
-        if (e.target.name === 'email') {
-            setEmail(e.target.value);
-        } else {
-            setPassword(e.target.value);
-        };
+    const [formState, setFormState] = useState({ email: '', password: '' });
+    const [login, { error, data }] = useMutation(LOGIN_USER);
+  
+    // update state based on form input changes
+    const handleChange = (event) => {
+      const { name, value } = event.target;
+  
+      setFormState({
+        ...formState,
+        [name]: value,
+      });
     };
-
-    const handleSubmit = (e) => {
-        e.preventdefault();
-        // TODO: change global state of logged in, or create JWT token or something. then the redirect below
-        window.location.href = '/app/projects';
+  
+    // submit form
+    const handleFormSubmit = async (event) => {
+      event.preventDefault();
+      console.log(formState);
+      try {
+        const { data } = await login({
+          variables: { ...formState },
+        });
+  
+        Auth.login(data.login.token);
+      } catch (e) {
+        console.error(e);
+      }
+  
+      // clear form values
+      setFormState({
+        email: '',
+        password: '',
+      });
     };
 
     return (
