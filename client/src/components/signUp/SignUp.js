@@ -72,10 +72,10 @@ function SignUp() {
             <button className="login__btn" type="submit">Submit</button>
           </div>
         </form>
-        <p className="prompt">
+      </section>
+      <p className="prompt">
           Already have an account? <Link className="prompt__link" to="/app/login">Log in</Link>
         </p>
-      </section>
     </div>
   );
 }
