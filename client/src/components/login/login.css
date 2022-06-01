@@ -11,7 +11,7 @@
 label {
     display: block;
     font-family: var(--fnt-page);
-    margin-top: 1em;
+    margin-top: 1.5em;
     margin-bottom: .25em;
 }
 
@@ -20,8 +20,10 @@ label {
 }
 
 input {
+    border: 2px solid #DADADA;
+    border-radius: .3rem;
     width: calc(100% - .87rem);
-    padding: .25em .375em;
+    padding: .625em .375em; /* 5/8 & 3/8 */
 }
 
 .login__btn {
@@ -42,11 +44,12 @@ input {
     background-color: #fff;
     box-shadow: 0 4px 4px var(--clr-shadow);
     border-radius: .5rem;
-    padding: 1.5rem;
+    padding: 2.25rem 2.75rem 2.75rem 2.75rem;
     margin-bottom: 1rem;;
 }
 
 .prompt {
+    font-size: .95rem;
     margin: 0;
     color:black;
 }

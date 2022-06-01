@@ -12,7 +12,7 @@ body {
   width: clamp(10em, 55%, 60em);
 }
 
-h1 {
+.splash__title {
   text-shadow: 0px 4px 4px var(--clr-shadow);
   width:fit-content;
   margin-right: 0;
@@ -23,7 +23,7 @@ h1 {
   margin-bottom: .25em;
 }
 
-h2 {
+.splash__subtitle {
   text-shadow: 0px 4px 4px var(--clr-shadow);
   margin-top: .25em;
   color: #fff;
