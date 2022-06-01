@@ -8,7 +8,7 @@
     background-color: #D9D9D9;
 }
 
-label {
+.login__labels {
     display: block;
     font-family: var(--fnt-page);
     margin-top: 1.5em;
@@ -19,7 +19,7 @@ label {
     margin-top: 0;
 }
 
-input {
+.login__input {
     border: 2px solid #DADADA;
     border-radius: .3rem;
     width: calc(100% - .87rem);
