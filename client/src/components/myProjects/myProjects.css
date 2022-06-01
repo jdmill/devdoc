@@ -12,6 +12,7 @@
     background-color: var(--clr-primary);
     margin: 0;
     padding: .75em 2em;
+    border-radius: .5rem 0.5rem 0 0;
 }
 
 .card__title {

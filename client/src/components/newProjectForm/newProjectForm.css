@@ -1,0 +1,38 @@
+.new__proj__form {
+    margin: 2.75em;
+    margin-top: 1.5em;
+}
+
+.new__proj__labels {
+    display: block;
+    font-family: var(--fnt-page);
+    margin-top: 0;
+    margin-bottom: .25em;
+}
+
+.new__proj__input {
+    border: 2px solid #DADADA;
+    border-radius: .3rem;
+    width: calc(100% - .87rem);
+    padding: .625em .375em; /* 5/8 & 3/8 */
+}
+
+.new__proj__btn {
+    font-family: var(--fnt-page);
+    font-weight: 800;
+    font-size: 1.0625rem;
+    padding: .625em;
+    background-color: #18B1E1;
+    border: none;
+    width: 100%;
+    margin-top: 1.5em;
+    color: #fff;
+    border-radius: .5rem;
+}
+
+.new__proj__btn:hover {
+    cursor: pointer;
+    box-shadow: inset 0px 4px 4px var(--clr-shadow);
+    text-shadow: none;
+    background-color: #82A4D8;
+}
