@@ -6,8 +6,8 @@ function LandingPage() {
   return (
     <main>
       <div className="info">
-        <h1>Dev Doctor</h1>
-        <h2>A website generation tool <span className="conditional__br"><br></br></span>for the hard working entrepreneur</h2>
+        <h1 className="splash__title">Dev Doctor</h1>
+        <h2 className="splash__subtitle">A website generation tool <span className="conditional__br"><br></br></span>for the hard working entrepreneur</h2>
           <Link to="/app/login"><button>Get Started</button></Link>
       </div>
       <div className="hero">
