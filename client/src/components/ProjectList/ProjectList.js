@@ -18,6 +18,7 @@ const ProjectList = ({ user }) => {
     await removeProject({
       variables: { userId: user._id, projectId: projectId },
     });
+    await window.location.reload();
   };
 
   if (!user.projects.length) {
