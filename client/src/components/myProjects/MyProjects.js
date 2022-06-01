@@ -1,6 +1,7 @@
+import React from "react";
+import NewProjectForm from "../newProjectForm/NewProjectForm";
 function MyProjects() {
-
-    /*
+  /*
     const handleEditRequest(e) => {
         cont id = e.target.name
         window.location.href = `/app/projects/${id}`;
@@ -12,11 +13,13 @@ function MyProjects() {
     };
     */
 
-    return (
-        <div className="container">
-            <h2>list of projects</h2>
-            <ul className="project__list">
-                {/* projects.map((project) => {
+  return (
+    <div className="container">
+      <NewProjectForm />
+
+      <h2>list of projects</h2>
+      <ul className="project__list">
+        {/* projects.map((project) => {
                     <li>
                         <div classNAme="project__item">
                             <p className="project__title">{project.name}</p>
@@ -37,9 +40,9 @@ function MyProjects() {
                         </div>
                     </li>
                 }) */}
-            </ul>
-        </div>
-    );
-};
+      </ul>
+    </div>
+  );
+}
 
 export default MyProjects;
