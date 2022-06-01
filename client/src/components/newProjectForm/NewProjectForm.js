@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_PROJECT } from "../../utils/mutations";
 import Auth from "../../utils/auth";
-import styles from './newProjectForm.css';
+import './newProjectForm.css';
 
 function NewProjectForm() {
   const [projectTitle, setFormState] = useState("");

@@ -8,7 +8,7 @@ import { QUERY_USER } from "../../utils/queries";
 
 import Auth from "../../utils/auth";
 
-import styles from './myProjects.css';
+import './myProjects.css';
 
 function MyProjects() {
   const user_id = Auth.getUser().data._id;

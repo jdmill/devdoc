@@ -1,4 +1,4 @@
-import styles from './componentEditor.css';
+import './componentEditor.css';
 import { useState } from 'react';
 import EF_header from '../editorForm/EF_header'; // Editor Form for Header
 import EF_articlePhoto from '../editorForm/EF_article-photo'; // Editor Form for Article w/ photo

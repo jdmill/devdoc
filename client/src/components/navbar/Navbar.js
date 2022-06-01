@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
-import styles from "./navbar.css";
+import "./navbar.css";
 
 function Navbar() {
   const logout = (event) => {

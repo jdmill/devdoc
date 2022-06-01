@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import Auth from "../../utils/auth";
 import { ADD_USER } from "../../utils/mutations";
-import styles from '../login/login.css';
+import '../login/login.css';
 
 function SignUp() {
   const [formState, setFormState] = useState({ email: "", password: "" });
