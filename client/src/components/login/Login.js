@@ -47,8 +47,9 @@ function Login(props) {
       <section className="login__card">
         <div>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="loginEmail" className="first__label">Email</label>
+            <label htmlFor="loginEmail" className="first__label login__labels">Email</label>
             <input
+              className="login__input"
               id="loginEmail"
               type="text"
               name="email"
@@ -56,8 +57,9 @@ function Login(props) {
               onChange={handleChange}
             />
             <div>
-              <label htmlFor="loginPass">Password</label>
+              <label htmlFor="loginPass" class="login__labels">Password</label>
               <input
+                className="login__input"
                 id="loginPass"
                 type="password"
                 name="password"

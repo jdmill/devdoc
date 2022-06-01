@@ -35,8 +35,9 @@ function SignUp() {
       <section className="login__card">
         <form onSubmit={handleFormSubmit}>
           <div>
-            <label htmlFor="signupUsername" className="first__label">Username</label>
+            <label htmlFor="signupUsername" className="first__label login__labels">Username</label>
             <input
+              className="login__input"
               id="signupUsername"
               type="text"
               name="username"
@@ -45,8 +46,9 @@ function SignUp() {
             />
           </div>
           <div>
-            <label htmlFor="signupEmail">Email</label>
+            <label htmlFor="signupEmail" class="login__labels">Email</label>
             <input
+              className="login__input"
               id="signupEmail"
               type="text"
               name="email"
@@ -55,8 +57,9 @@ function SignUp() {
             />
           </div>
           <div>
-            <label htmlFor="signupPass">Password</label>
+            <label htmlFor="signupPass" class="login__labels">Password</label>
             <input
+              className="login__input"
               id="signupPass"
               type="password"
               name="password"
@@ -65,8 +68,8 @@ function SignUp() {
             />
           </div>
           <div>
-            <label htmlFor="confirmPass">Confirm Password</label>
-            <input id="confirmPass" type="password" name="confirmPassword" />
+            <label htmlFor="confirmPass" class="login__labels">Confirm Password</label>
+            <input  className="login__input" id="confirmPass" type="password" name="confirmPassword" />
           </div>
           <div>
             <button className="login__btn" type="submit">Submit</button>
