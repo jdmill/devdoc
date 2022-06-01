@@ -1,5 +1,5 @@
 import Nav from '../navbar/Navbar';
-import styles from './header.css';
+import './header.css';
 
 function Header() {
     return (
