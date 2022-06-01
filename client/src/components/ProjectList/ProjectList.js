@@ -24,25 +24,23 @@ const handleDeleteRequest = (e) => {
     <div>
       {projects &&
         projects.map((project) => (
-          <div key={project._id}>
-            <li className="list__item">
-                    <p className="project__title">{project.projectTitle}</p>
-                    <div className="project__icons">
-                        <button className="list__btns edit"
-                            name={project.id}
-                            onClick={handleEditRequest}
-                        >
-                            Edit
-                        </button>
-                        <button className="list__btns delete"
-                            name={project.id}
-                            onClick={handleDeleteRequest}
-                        >
-                            Delete
-                        </button>
-                    </div>
-                </li>
-          </div>
+          <li key={project._id} className="list__item">
+                  <p className="project__title">{project.projectTitle}</p>
+                  <div className="project__icons">
+                      <button className="list__btns edit"
+                          name={project.id}
+                          onClick={handleEditRequest}
+                      >
+                          Edit
+                      </button>
+                      <button className="list__btns delete"
+                          name={project.id}
+                          onClick={handleDeleteRequest}
+                      >
+                          Delete
+                      </button>
+                  </div>
+              </li>
         ))}
     </div>
   );
