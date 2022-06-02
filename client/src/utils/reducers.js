@@ -11,7 +11,7 @@ export const reducer = (state, action) => {
     case ADD_PROJECT:
       return {
         ...state,
-        project: [action.project],
+        projects: [action.project],
       };
 
     default:

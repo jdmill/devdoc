@@ -6,10 +6,7 @@ const EditorContext = createContext();
 const { Provider } = EditorContext;
 
 const EditorProvider = ({ value = [], ...props }) => {
-  const [state, dispatch] = useComponentReducer({
-    project: {},
-    components: [],
-  });
+  const [state, dispatch] = useComponentReducer();
 
   return <Provider value={[state, dispatch]} {...props} />;
 };
