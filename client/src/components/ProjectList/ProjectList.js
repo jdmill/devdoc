@@ -1,5 +1,7 @@
 import { useMutation } from "@apollo/client";
 import { REMOVE_PROJECT } from "../../utils/mutations";
+import { useQuery } from "@apollo/client";
+import { QUERY_PROJECT } from "../../utils/queries";
 
 const ProjectList = ({ user }) => {
   const [removeProject, { error }] = useMutation(REMOVE_PROJECT);

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import { useEditorContext } from "../../utils/EditorState";
 import { useQuery } from "@apollo/client";
 import { QUERY_PROJECT } from "../../utils/queries";
@@ -31,7 +31,7 @@ function ProjectEditor() {
         type: ADD_PROJECT,
         project: data,
       });
-    };
+    }
   }, [data, dispatch]);
 
   //console.log(`I am the data \n ${JSON.stringify(data)}`);
@@ -43,10 +43,10 @@ function ProjectEditor() {
     <div className="gray__bg">
       <Toolbox />
       {loading ? (
-            <div>Loading...</div>
-          ) : (
-            <h2>{state && state.projects.project.projectTitle}</h2>
-          )}
+        <div>Loading...</div>
+      ) : (
+        <h2>{state && state.projects.project.projectTitle}</h2>
+      )}
       <ProjectPreview />
     </div>
   );
