@@ -1,5 +1,4 @@
 //This creates an editor state that allows store of project components before a db mutation
-
 import { createContext, useContext } from "react";
 import { useComponentReducer } from "./reducers";
 
