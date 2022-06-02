@@ -2,8 +2,8 @@ import { useEditorContext } from "../../utils/EditorState";
 
 function Toolbox() {
   const [state, dispatch] = useEditorContext();
-  console.log("look below");
-  console.log(state);
+  // console.log("look below");
+  // console.log(state);
   function addArticle() {
     localStorage.setItem("compType", "article");
     window.location.assign(`/app/projects/project/articleComponentForm`);

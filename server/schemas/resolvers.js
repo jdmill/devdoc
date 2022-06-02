@@ -9,7 +9,7 @@ const resolvers = {
     },
     // queries by the user id
     user: async (parent, { user_id }) => {
-      return User.findOne({ user_id });
+      return User.findOne({ _id: user_id });
     },
 
     loggedInUser: async (parent, args, context) => {
@@ -21,7 +21,7 @@ const resolvers = {
 
     // queries by the projectId
     project: async (parent, { project_id }) => {
-      return Project.findOne({ project_id });
+      return Project.findOne({ _id: project_id });
     },
   },
   Mutation: {
@@ -34,7 +34,7 @@ const resolvers = {
     },
     // Authorization and Login
     login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
+      const user = await User.findOne({ email: email });
 
       if (!user) {
         throw new AuthenticationError("This user does not exist");
@@ -53,13 +53,13 @@ const resolvers = {
     // updates user with allowed args
     updateUser: async (parent, args, { user_id }, context) => {
       if (context.user) {
-        return await User.findOneAndUpdate({ user_id }, args, { new: true });
+        return await User.findOneAndUpdate({ _id: user_id }, args, { new: true });
       }
     },
     // deletes user
     removeUser: async (parent, args, { user_id }, context) => {
       if (context.user) {
-        return await User.findOneAndDelete({ user_id });
+        return await User.findOneAndDelete({ _id: user_id });
       }
     },
     // creates a project and pushes it to the users project array
@@ -68,7 +68,7 @@ const resolvers = {
         const project = await Project.create({ projectTitle });
 
         await User.findOneAndUpdate(
-          { user_id },
+          { _id: user_id },
           {
             $push: { projects: project },
           },
@@ -82,7 +82,7 @@ const resolvers = {
     removeProject: async (parent, { user_id, project_id }, context) => {
       if (context.user) {
         await User.findOneAndUpdate(
-          { user_id },
+          { _id: user_id },
           {
             $pull: { projects: { _id: project_id } },
           }
@@ -108,7 +108,7 @@ const resolvers = {
         });
 
         await Project.findOneAndUpdate(
-          project_id,
+          { _id: project_id },
           {
             $push: { componentArray: component },
           },
@@ -121,7 +121,7 @@ const resolvers = {
     removeComponent: async (parent, { project_id, component_id }, context) => {
       if (context.user) {
         return await Project.findOneAndUpdate(
-          { project_id },
+          { _id: project_id },
           {
             $pull: { componentArray: { _id: component_id } },
           },
