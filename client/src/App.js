@@ -1,8 +1,13 @@
 /* =========================================================================
  * library and NPM imports
  * ========================================================================= */
-import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
-import { setContext } from '@apollo/client/link/context';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 /* =========================================================================
@@ -10,29 +15,30 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
  * ========================================================================= */
 import LandingPage from "./components/landingPage/LandingPage";
 import Container from "./components/container/Container";
-import SignUp from './components/signUp/SignUp';
-import Login from './components/login/Login';
-import MyProjects from './components/myProjects/MyProjects';
-import ProjectEditor from './components/projectEditor/ProjectEditor';
-import ComponentEditor from './components/componentEditor/ComponentEditor';
+import SignUp from "./components/signUp/SignUp";
+import Login from "./components/login/Login";
+import MyProjects from "./components/myProjects/MyProjects";
+import ProjectEditor from "./components/projectEditor/ProjectEditor";
+import ComponentEditor from "./components/componentEditor/ComponentEditor";
+import { EditorProvider } from "./utils/EditorState";
 
 /* =========================================================================
  * Using Apollo to manage sessions / tokens
  * ========================================================================= */
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: "/graphql",
 });
 
 // Request middleware to attach JWT token to every request as an `authorization` header
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
-  const token = localStorage.getItem('session_token');
+  const token = localStorage.getItem("session_token");
   // return the headers to the context so httpLink can read them
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : '',
+      authorization: token ? `Bearer ${token}` : "",
     },
   };
 });
@@ -53,11 +59,16 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="app" element={<Container />}>
-            <Route path="signup" element={<SignUp />}/>
-            <Route path="login" element={<Login />}/>
-            <Route path="projects" element={<MyProjects />}/>
-            <Route path="projects/:projectId" element={<ProjectEditor />}/>
-            <Route path="projects/:projectId/:componentId" element={<ComponentEditor />}/>
+            <Route path="signup" element={<SignUp />} />
+            <Route path="login" element={<Login />} />
+            <Route path="projects" element={<MyProjects />} />
+            <EditorProvider>
+              <Route path="projects/:projectId" element={<ProjectEditor />} />
+              <Route
+                path="projects/:projectId/:componentId"
+                element={<ComponentEditor />}
+              />
+            </EditorProvider>
           </Route>
         </Routes>
       </Router>

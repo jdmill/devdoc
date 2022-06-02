@@ -47,7 +47,7 @@ export const QUERY_USER = gql`
 `;
 
 //queries a single project
-export const QUERY_PROJECTS = gql`
+export const QUERY_PROJECT = gql`
   query Project($projectId: ID!) {
     project(project_id: $projectId) {
       _id

@@ -6,6 +6,7 @@ const ProjectList = ({ user }) => {
 
   const HandleEditRequest = (e) => {
     const projectId = e.target.name;
+    localStorage.setItem("projectId", projectId);
     window.location.assign(`/app/projects/${projectId}`);
     console.log(`You clicked edit for project ID: ${projectId}`);
   };
