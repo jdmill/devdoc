@@ -1,9 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 import { useEditorContext } from "../../utils/EditorState";
 import { useQuery } from "@apollo/client";
 import { QUERY_PROJECT } from "../../utils/queries";
 // import { useState } from "react";
 import { ADD_PROJECT, ADD_TO_PROJECT } from "../../utils/actions";
+import Toolbox from "../toolbox/Toolbox";
 
 function ProjectEditor() {
   const [state, dispatch] = useEditorContext();
@@ -18,11 +19,12 @@ function ProjectEditor() {
 
   // trigger on component mount
   useEffect(() => {
-    dispatch({ 
+    dispatch({
       type: ADD_PROJECT,
-      project: data });
-  }, [ data, dispatch ]);
-  
+      project: data,
+    });
+  }, [data, dispatch]);
+
   //console.log(`I am the data \n ${JSON.stringify(data)}`);
 
   console.log(`I am the global state \n ${JSON.stringify(state)}`);
@@ -30,9 +32,10 @@ function ProjectEditor() {
 
   return (
     <div className="gray__bg">
+      <Toolbox />
       <h2>I'm the project editor.</h2>
     </div>
   );
-};
+}
 
 export default ProjectEditor;
