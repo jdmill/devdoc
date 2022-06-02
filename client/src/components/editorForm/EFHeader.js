@@ -22,8 +22,7 @@ function EFHeader() {
   // TODO: make submitting the form update the user component
   // User.findOneAndUpdate(projectId, component ID)
   // const compTitle = [title,setTitle] = useState(User.findById(:projectID/:componentId));
-
-  const title = "Placeholder"; // TODO: remove this placeholder and use the above commented out logic
+  const [title,setTitle] = useState('');
 
   const handleAddNav = () => {
     const newLink = { title: "", location: "" };
@@ -33,6 +32,10 @@ function EFHeader() {
   const cancelEdit = () => {
     window.location.href = "/app/projects/";
   };
+
+  const handleChange = (e) => {
+    setTitle(e.target.value);
+  }
 
   const submitChanges = (e) => {
     e.preventDefault();
@@ -45,12 +48,13 @@ function EFHeader() {
       <h2>A form for editing a header component</h2>
       <label htmlFor="title"></label>
       <input
+        onChange={handleChange}
         className="full-width-input"
         id="title"
         type="text"
         value={title}
       />
-      {links.map((link) => {
+      {/*links.map((link) => {
         <div className="conditional__fields">
           <label htmlFor={link.title}>Navlink Label</label>
           <input
@@ -69,10 +73,11 @@ function EFHeader() {
             value={link.location}
           />
         </div>;
-      })}
-      <button className="add__new" onClick={handleAddNav}>
+      }) */}
+      {/* <button className="add__new" onClick={handleAddNav}>
         Add
       </button>
+    */}
       <button className="cancel" onClick={cancelEdit}>
         Cancel
       </button>
