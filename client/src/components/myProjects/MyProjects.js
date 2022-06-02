@@ -8,7 +8,7 @@ import { QUERY_USER } from "../../utils/queries";
 
 import Auth from "../../utils/auth";
 
-import './myProjects.css';
+import "./myProjects.css";
 
 function MyProjects() {
   const user_id = Auth.getUser().data._id;
@@ -27,15 +27,15 @@ function MyProjects() {
 
   return (
     <div className="gray__bg">
-        <section className="list__card">
-            <div className="card__header">
-                <h2 className="card__title">My Projects</h2>
-            </div>
-            <ul className="project__list">
-            <ProjectList projects={data.user.projects} />
-            </ul>
-            <NewProjectForm />
-        </section>
+      <section className="list__card">
+        <div className="card__header">
+          <h2 className="card__title">My Projects</h2>
+        </div>
+        <ul className="project__list">
+          <ProjectList user={data.user} />
+        </ul>
+        <NewProjectForm />
+      </section>
     </div>
   );
 }

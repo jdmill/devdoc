@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_PROJECT } from "../../utils/mutations";
 import Auth from "../../utils/auth";
-import './newProjectForm.css';
+import "./newProjectForm.css";
 
 function NewProjectForm() {
   const [projectTitle, setFormState] = useState("");
@@ -29,7 +29,7 @@ function NewProjectForm() {
         },
       });
 
-      setFormState("");
+      await window.location.reload();
     } catch (err) {
       console.error(err);
     }
@@ -37,11 +37,13 @@ function NewProjectForm() {
   return (
     <section className="new_project_card">
       <div className="card__header">
-                <h2 className="card__title">Create a New Project</h2>
-            </div>
+        <h2 className="card__title">Create a New Project</h2>
+      </div>
       <form onSubmit={handleFormSubmit}>
         <div className="new__proj__form">
-          <label  className="new__proj__labels" htmlFor="newProjectForm">Project Title</label>
+          <label className="new__proj__labels" htmlFor="newProjectForm">
+            Project Title
+          </label>
           <input
             className="new__proj__input"
             id="projectTitleInput"

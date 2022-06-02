@@ -31,6 +31,15 @@ export const ADD_PROJECT = gql`
   }
 `;
 
+export const REMOVE_PROJECT = gql`
+  mutation Mutation($userId: ID!, $projectId: ID!) {
+    removeProject(user_id: $userId, project_id: $projectId) {
+      _id
+      projectTitle
+    }
+  }
+`;
+
 //We will have to add separate mutations for each component depending on what params are required
 //need to fix links issues for nav
 // export const ADD_COMPONENT_HEADER = gql``;
