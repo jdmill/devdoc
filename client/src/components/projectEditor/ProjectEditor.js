@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useParams } from 'react-router-dom';
 import { useEditorContext } from "../../utils/EditorState";
 import { useQuery } from "@apollo/client";
 import { QUERY_PROJECT } from "../../utils/queries";
@@ -9,7 +10,10 @@ import ProjectPreview from "../projectPreview/ProjectPreview";
 
 function ProjectEditor() {
   const [state, dispatch] = useEditorContext();
-  const projectId = localStorage.getItem("projectId");
+  // const projectId = localStorage.getItem("projectId");
+  const projectId = useParams().projectId;
+
+  console.log(projectId);
 
   //const [currentProject, setCurrentProject] = useState({});
   const { loading, data } = useQuery(QUERY_PROJECT, {
@@ -17,6 +21,8 @@ function ProjectEditor() {
       projectId: projectId,
     },
   });
+
+  console.log(data);
 
   // trigger on component mount
   useEffect(() => {

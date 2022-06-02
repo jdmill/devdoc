@@ -4,17 +4,25 @@ import { REMOVE_PROJECT } from "../../utils/mutations";
 const ProjectList = ({ user }) => {
   const [removeProject, { error }] = useMutation(REMOVE_PROJECT);
 
-  const HandleEditRequest = (e) => {
+  const HandleEditRequest = async (e) => {
     const projectId = e.target.name;
+    try {
+      const prevProj = await localStorage.getItem('projectId');
+      if (prevProj) {
+        localStorage.removeItem('projectId')
+      }
+    } catch (err) {
+      console.log('no existing project');
+    };
     localStorage.setItem("projectId", projectId);
-    window.location.assign(`/app/projects/${projectId}`);
-    console.log(`You clicked edit for project ID: ${projectId}`);
+    await window.location.assign(`/app/projects/${projectId}`);
+    //console.log(`You clicked edit for project ID: ${projectId}`);
   };
 
   const HandleDeleteRequest = async (e) => {
     const projectId = e.target.name;
-    console.log(`You clicked delete for project ID: ${projectId}`);
-    console.log(user._id);
+    //console.log(`You clicked delete for project ID: ${projectId}`);
+    //console.log(user._id);
 
     await removeProject({
       variables: { userId: user._id, projectId: projectId },
