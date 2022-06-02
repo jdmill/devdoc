@@ -40,64 +40,16 @@ export const REMOVE_PROJECT = gql`
   }
 `;
 
-//We will have to add separate mutations for each component depending on what params are required
-//need to fix links issues for nav
-// export const ADD_COMPONENT_HEADER = gql``;
-
-//hero component Mutation
-export const ADD_COMPONENT_HERO = gql`
-  mutation AddProject($projectId: ID!, $compType: String!, $imageUrl: String) {
-    addComponent(
-      project_id: $projectId
-      compType: $compType
-      imageUrl: $imageUrl
-    ) {
+// All components are added with just this one mutation type. The compType gets passed in as a variable by the creation button, and then every value is filled with a default placeholder the user can edit later
+export const ADD_COMPONENT = gql`
+  mutation AddComponent($projectId: ID!, $compType: String!, $contact: Boolean!) {
+    addComponent(project_id: $projectId, compType: $compType, contact:$contact) {
       _id
-      compType
-      imageUrl
-    }
-  }
-`;
-
-//adds article with image component
-export const ADD_COMPONENT_ARTICLE_IMG = gql`
-  mutation AddProject(
-    $projectId: ID!
-    $compType: String!
-    $imageUrl: String
-    $text: String
-  ) {
-    addComponent(
-      project_id: $projectId
-      compType: $compType
-      imageUrl: $imageUrl
-      text: $text
-    ) {
-      _id
+      title
       compType
       imageUrl
       text
-    }
-  }
-`;
-
-//adds the contact form component to the component array in a project
-export const ADD_COMPONENT_CONTACT = gql`
-  mutation AddProject(
-    $projectId: ID!
-    $compType: String!
-    $imageUrl: String
-    $text: String
-  ) {
-    addComponent(
-      project_id: $projectId
-      compType: $compType
-      imageUrl: $imageUrl
-      text: $text
-    ) {
-      _id
-      compType
-      title
+      contact
     }
   }
 `;

@@ -6,6 +6,7 @@ const componentSchema = new Schema({
     type: String,
     required: true,
     maxlength: 60,
+    default: "New Component"
   },
   compType: {
     type: String,
@@ -30,11 +31,13 @@ const componentSchema = new Schema({
   },
   imageUrl: {
     type: String,
+    default: '/'
   },
   text: {
     type: String,
     minlength: 12,
     maxlength: 255,
+    default: 'Edit this component to change this text'
   },
   contact: {
     type: Boolean,

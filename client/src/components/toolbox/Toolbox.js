@@ -1,25 +1,41 @@
+import { useParams } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
 import { useEditorContext } from "../../utils/EditorState";
+import { ADD_COMPONENT } from "../../utils/mutations";
 
 function Toolbox() {
   const [state, dispatch] = useEditorContext();
-  // console.log("look below");
-  // console.log(state);
+  const projectId = useParams().projectId
+  const [ addComponent, { error }] = useMutation(ADD_COMPONENT);
+
+  const addComp = async (projId, compType, contact) => {
+    try {
+      // Execute mutation and pass in defined parameter data as variables
+      const { data } = await addComponent({
+        variables: {
+          projectId: projId, // right hand values are from parameter/argument passed in
+          compType: compType,
+          contact: contact
+        },
+      });
+      window.location.assign(`/app/projects/${projId}`);
+    } catch (err) {
+      console.error(err);
+    };
+  };
+  
   function addArticle() {
-    localStorage.setItem("compType", "article");
-    window.location.assign(`/app/projects/project/articleComponentForm`);
-  }
+    addComp(projectId, "article-photo", false);
+  };
   function addFooter() {
-    localStorage.setItem("compType", "footer");
-    window.location.assign(`/app/projects/project/footerComponentForm`);
-  }
+    addComp(projectId, "footer", false);
+  };
   function addHeader() {
-    localStorage.setItem("compType", "header");
-    window.location.assign(`/app/projects/project/headerComponentForm`);
-  }
+    addComp(projectId, "header", false);
+  };
   function addContact() {
-    localStorage.setItem("compType", "contact");
-    window.location.assign(`/app/projects/project/contactComponentForm`);
-  }
+    addComp(projectId, "contact", true);
+  };
 
   return (
     <div className="container">
