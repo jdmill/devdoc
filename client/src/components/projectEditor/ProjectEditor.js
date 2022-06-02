@@ -5,6 +5,7 @@ import { QUERY_PROJECT } from "../../utils/queries";
 // import { useState } from "react";
 import { ADD_PROJECT, ADD_TO_PROJECT } from "../../utils/actions";
 import Toolbox from "../toolbox/Toolbox";
+import ProjectPreview from "../projectPreview/ProjectPreview";
 
 function ProjectEditor() {
   const [state, dispatch] = useEditorContext();
@@ -34,6 +35,7 @@ function ProjectEditor() {
     <div className="gray__bg">
       <Toolbox />
       <h2>I'm the project editor.</h2>
+      <ProjectPreview />
     </div>
   );
 }

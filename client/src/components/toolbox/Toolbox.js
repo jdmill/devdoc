@@ -2,30 +2,23 @@ import { useEditorContext } from "../../utils/EditorState";
 
 function Toolbox() {
   const [state, dispatch] = useEditorContext();
+  console.log("look below");
   console.log(state);
   function addArticle() {
     localStorage.setItem("compType", "article");
-    window.location.assign(
-      `/app/projects/${state.project._id}/articleComponentForm`
-    );
+    window.location.assign(`/app/projects/project/articleComponentForm`);
   }
   function addFooter() {
     localStorage.setItem("compType", "footer");
-    window.location.assign(
-      `/app/projects/${state.project._id}/footerComponentForm`
-    );
+    window.location.assign(`/app/projects/project/footerComponentForm`);
   }
   function addHeader() {
     localStorage.setItem("compType", "header");
-    window.location.assign(
-      `/app/projects/${state.project._id}/headerComponentForm`
-    );
+    window.location.assign(`/app/projects/project/headerComponentForm`);
   }
   function addContact() {
     localStorage.setItem("compType", "contact");
-    window.location.assign(
-      `/app/projects/${state.project._id}/contactComponentForm`
-    );
+    window.location.assign(`/app/projects/project/contactComponentForm`);
   }
 
   return (
