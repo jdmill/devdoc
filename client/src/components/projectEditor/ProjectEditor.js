@@ -12,7 +12,7 @@ function ProjectEditor() {
   const projectId = localStorage.getItem("projectId");
 
   //const [currentProject, setCurrentProject] = useState({});
-  const { data } = useQuery(QUERY_PROJECT, {
+  const { loading, data } = useQuery(QUERY_PROJECT, {
     variables: {
       projectId: projectId,
     },
@@ -20,10 +20,12 @@ function ProjectEditor() {
 
   // trigger on component mount
   useEffect(() => {
-    dispatch({
-      type: ADD_PROJECT,
-      project: data,
-    });
+    if (!loading) {
+      dispatch({
+        type: ADD_PROJECT,
+        project: data,
+      });
+    };
   }, [data, dispatch]);
 
   //console.log(`I am the data \n ${JSON.stringify(data)}`);
@@ -34,7 +36,11 @@ function ProjectEditor() {
   return (
     <div className="gray__bg">
       <Toolbox />
-      <h2>I'm the project editor.</h2>
+      {loading ? (
+            <div>Loading...</div>
+          ) : (
+            <h2>{state && state.projects.project.projectTitle}</h2>
+          )}
       <ProjectPreview />
     </div>
   );
