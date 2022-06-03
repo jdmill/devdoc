@@ -110,6 +110,13 @@ function ProjectEditor() {
                       <p className="project__title">{component.title}</p>
                       <div className="project__icons">
                         <button
+                          className="comp__list__btns render"
+                          name={component._id}
+                          onClick={console.log('eventually this will render code and preview')}
+                        >
+                          Rend
+                        </button>
+                        <button
                           className="list__btns edit"
                           name={component._id}
                           value={component.compType}
