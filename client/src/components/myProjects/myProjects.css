@@ -31,6 +31,7 @@
     border-radius: .5rem;
     padding: 0;
     margin: 1rem;
+    transition: all 150ms ease-in;
 }
 
 .project__list {
@@ -41,11 +42,30 @@
     font-size: 1rem;
     padding: .125em .5em;
     border-radius: 2px;
+    font-family: var(--fnt-splash);
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 600;
+    background-color: var(--clr-secondary);
+    border: none;
+    text-shadow: 0px 4px 4px var(--clr-shadow);
 }
+
+.list__btns:hover {
+    cursor: pointer;
+    box-shadow: inset 0px 4px 4px var(--clr-shadow);
+    text-shadow: none;
+    background-color: #82A4D8;
+    }
 
 .delete {
     background-color: #b12727;
     color: #fff;
+}
+
+.delete:hover {
+    background-color: #fff;
+    color: #b12727;
 }
 
 .project__list {
@@ -75,9 +95,20 @@
 
 .project__icons {
     display: flex;
-    gap: 0.5em;
+    gap: 0.25em;
 }
 
 input {
     width: fit-content;
+}
+
+@media screen and (max-width: 600px) {
+    .project__icons {
+        flex-direction: column;
+    }
+
+    .list__card {
+        width: clamp(200px, 90%, 540px);
+        margin: 0.5rem;
+    }
 }

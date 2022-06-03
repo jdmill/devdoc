@@ -21,9 +21,19 @@ ul {
     text-shadow: 0px 2px 2px var(--clr-shadow);
 }
 
-.nav__item:hover {
+.nav__item:hover,
+.nav__item:focus-visible {
     cursor: pointer;
     background-color: #fff;
     color: var(--clr-secondary);
     text-shadow: none;
+}
+
+@media (hover: none) {
+    .nav__item:hover,
+    .nav__item:focus-visible {
+        background-color: none;
+        color: #fff;
+        text-shadow: 0px 2px 2px var(--clr-shadow);
+    }
 }

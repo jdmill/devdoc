@@ -98,6 +98,7 @@ function ProjectEditor() {
               {state && state.projects.project.projectTitle}
             </h2>
             <ul className="project__list">
+
               {state &&
                 state.projects.project.componentArray.map((component) => {
                   return (
@@ -149,17 +150,20 @@ function ProjectEditor() {
                     </li>
                   );
                 })}
+
             </ul>
           </section>
         )}
         <div className="right__side">
           <div className="top__card">
             <div className="card__header">
-              <h2 className="card__title">
-                Your Toolbox! Click any component to add it to your project
-              </h2>
+
+            <h2 className="card__title">
+              Your Toolbox!
+            </h2>
             </div>
             <Toolbox />
+            <p className="tag">Click any component to add it to your project</p>
           </div>
           <div className="bottom__card">
             <div className="card__header">
