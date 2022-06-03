@@ -42,8 +42,8 @@ export const REMOVE_PROJECT = gql`
 
 // All components are added with just this one mutation type. The compType gets passed in as a variable by the creation button, and then every value is filled with a default placeholder the user can edit later
 export const ADD_COMPONENT = gql`
-  mutation AddComponent($projectId: ID!, $compType: String!, $contact: Boolean!) {
-    addComponent(project_id: $projectId, compType: $compType, contact:$contact) {
+  mutation AddComponent($projectId: ID!, $compType: String!, $contact: Boolean!, $title: String) {
+    addComponent(project_id: $projectId, compType: $compType, contact:$contact, title:$title) {
       _id
       title
       compType
@@ -52,4 +52,24 @@ export const ADD_COMPONENT = gql`
       contact
     }
   }
+`;
+
+// not working yet TODO: fix this
+export const EDIT_COMPONENT = gql`
+mutation RemoveComponent($projectId: ID!, $componentId: ID!) {
+  removeComponent(component_id: $componentId) {
+    _id
+    title
+  }
+}
+`;
+
+// not working yet TODO: fix this
+export const REMOVE_COMPONENT = gql`
+mutation RemoveComponent($projectId: ID!, $componentId: ID!) {
+  removeComponent(project_id: $projectId, component_id: $componentId) {
+    _id
+    title
+  }
+}
 `;
