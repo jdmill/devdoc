@@ -2,17 +2,19 @@ import { useParams } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { useEditorContext } from "../../utils/EditorState";
 import { ADD_COMPONENT } from "../../utils/mutations";
+import './toolbox.css';
 
 function Toolbox() {
   const [state, dispatch] = useEditorContext();
   const projectId = useParams().projectId
   const [ addComponent, { error }] = useMutation(ADD_COMPONENT);
 
-  const addComp = async (projId, compType, contact) => {
+  const addComp = async (projId, title, compType, contact) => {
     try {
       // Execute mutation and pass in defined parameter data as variables
       const { data } = await addComponent({
         variables: {
+          title: title,
           projectId: projId, // right hand values are from parameter/argument passed in
           compType: compType,
           contact: contact
@@ -25,47 +27,42 @@ function Toolbox() {
   };
   
   function addArticle() {
-    addComp(projectId, "article-photo", false);
+    addComp(projectId, "new article", "article-photo", false);
   };
   function addFooter() {
-    addComp(projectId, "footer", false);
+    addComp(projectId, "new footer", "footer", false);
   };
   function addHeader() {
-    addComp(projectId, "header", false);
+    addComp(projectId, "new header", "header", false);
   };
   function addContact() {
-    addComp(projectId, "contact", true);
+    addComp(projectId, "new contact", "contact", true);
   };
 
   return (
-    <div className="container">
-      <h2 className="topLineContainer">
-        Your Toolbox! Click any component to add it to your project
-      </h2>
-      <ul className="button-group">
-        {/* Here we use the map method to return each component that the user may select */}
-        <li>
-          <button onClick={addHeader} className="button-group-item">
-            Header
-          </button>
-        </li>
-        <li>
-          <button onClick={addFooter} className="button-group-item">
-            Footer
-          </button>
-        </li>
-        <li>
-          <button onClick={addArticle} className="button-group-item">
-            Article
-          </button>
-        </li>
-        <li>
-          <button onClick={addContact} className="button-group-item">
-            Contact
-          </button>
-        </li>
-      </ul>
-    </div>
+    <ul className="button__pool">
+      {/* Here we use the map method to return each component that the user may select */}
+      <li>
+        <button onClick={addHeader} className="toolbox__button">
+          Header
+        </button>
+      </li>
+      <li>
+        <button onClick={addFooter} className="toolbox__button">
+          Footer
+        </button>
+      </li>
+      <li>
+        <button onClick={addArticle} className="toolbox__button">
+          Article
+        </button>
+      </li>
+      <li>
+        <button onClick={addContact} className="toolbox__button">
+          Contact
+        </button>
+      </li>
+    </ul>
   );
 }
 

@@ -1,0 +1,12 @@
+.toolbox__button {
+    font-size: 1.5rem;;
+}
+
+.button__pool {
+    background-color: #fff;
+    padding: .5em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}

@@ -128,6 +128,18 @@ const resolvers = {
         );
       }
     },
+    // TODO: double check this is working/ not sure I got the syntax right to update an array in an object
+    editComponent: async (parent, args, { project_id, component_id }, context) => {
+      if (context.user) {
+        return await Project.findOneAndUpdate(
+          { _id: project_id },
+          {
+            $set: { componentArray: { _id: component_id }, args },
+          },
+          { new: true }
+        );
+      }
+    },
   },
 };
 

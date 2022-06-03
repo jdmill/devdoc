@@ -56,6 +56,12 @@ const typeDefs = gql`
     removeUser(user_id: ID!): User
     removeProject(user_id: ID!, project_id: ID!): Project
     removeComponent(project_id: ID!, component_id: ID!): Component
+    editComponent(
+      title: String
+      imageUrl: String
+      text: String
+      contact: Boolean
+    ): Component
   }
 `;
 
