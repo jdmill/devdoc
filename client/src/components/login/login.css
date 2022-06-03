@@ -13,6 +13,7 @@
     font-family: var(--fnt-page);
     margin-top: 1.5em;
     margin-bottom: .25em;
+    transition: all 120ms ease-in;
 }
 
 .first__label {
@@ -52,7 +53,8 @@
     box-shadow: 0 4px 4px var(--clr-shadow);
     border-radius: .5rem;
     padding: 2.25rem 2.75rem 2.75rem 2.75rem;
-    margin-bottom: 1rem;;
+    margin-bottom: 1rem;
+    transition: all 120ms ease-in;
 }
 
 .prompt {
@@ -63,4 +65,19 @@
 
 .prompt__link {
     color: var(-clr-secondary);
+}
+
+@media screen and (max-width: 600px) {
+
+    .login__card {
+        width: clamp(200px, 90%, 400px);
+        margin: 0.5rem;
+        padding: 1.125rem 1.375rem 1.375rem 1.375rem;
+    }
+    
+    .login__labels {
+        margin-top: 0.75em;
+        margin-bottom: .125em;
+        transition: all 120ms ease-in;
+    }
 }

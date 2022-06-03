@@ -72,19 +72,26 @@ function ProjectEditor() {
                   <li className="list__item" key={component._id} name={component._id}>
                     <p className="project__title">{component.title}</p>
                     <div className="project__icons">
+                    <button
+                        className="comp__list__btns render"
+                        name={component._id}
+                        onClick={console.log('eventually this will render code and preview')}
+                      >
+                        Rend
+                      </button>
                       <button
-                        className="list__btns edit"
+                        className="comp__list__btns edit"
                         name={component._id}
                         onClick={HandleEditRequest}
                       >
                         Edit
                       </button>
                       <button
-                        className="list__btns delete"
+                        className="comp__list__btns delete"
                         name={component._id}
                         onClick={HandleDeleteRequest}
                       >
-                        Delete
+                        Del
                       </button>
                     </div>
                   </li>
@@ -97,10 +104,11 @@ function ProjectEditor() {
           <div className="top__card">
             <div className="card__header">
             <h2 className="card__title">
-              Your Toolbox! Click any component to add it to your project
+              Your Toolbox!
             </h2>
             </div>
             <Toolbox />
+            <p className="tag">Click any component to add it to your project</p>
           </div>
           <div className="bottom__card">
             <div className="card__header">

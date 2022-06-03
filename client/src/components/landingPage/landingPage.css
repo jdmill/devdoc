@@ -3,7 +3,7 @@ body {
 }
 
 .info {
-  transition: all 280ms linear ;
+  transition: all 120ms ease-in;
   left: 16.667vw;
   top: 20vh;
   position: absolute;
@@ -31,7 +31,7 @@ body {
   font-size: clamp( 2.1rem, 3vw, 2.8rem);
 }
 
-button {
+.splash__button {
   font-family: var(--fnt-splash);
   text-transform: uppercase;
   color: #fff;
@@ -44,7 +44,7 @@ button {
   text-shadow: 0px 4px 4px var(--clr-shadow);
 }
 
-button:hover {
+.splash__button:hover {
   cursor: pointer;
   box-shadow: inset 0px 4px 4px var(--clr-shadow);
   text-shadow: none;
@@ -58,7 +58,7 @@ button:hover {
 }
 
 .hero {
-  transition: transform 280ms linear ;
+  transition: transform 280ms ease-in ;
   transform: translateX(32%);
   right: 0;
   top: 0;
@@ -69,7 +69,7 @@ button:hover {
 
 .gradient {
   transform: translateX(-2px);
-  z-index: 1;
+  z-index: 2;
   position: relative;
   background: linear-gradient(to right,var(--clr-primary), transparent);
   width:60%;
@@ -88,17 +88,27 @@ button:hover {
   transform: translateY(-92%);
 }
 
+.credit {
+  font-family: var(--fnt-splash);
+  font-weight: 500;
+  position:absolute;
+  bottom: 0.375em;
+  left: 0.375em;
+  cursor: pointer;
+  color: #536e97;
+  text-shadow: 2px 2px 6px #DDD;
+}
+
 @media screen and ( max-width:750px ) {
   .hero {
     transform: translateX(50%);
 
   }
-
   .conditional__br {
     display: none;
   }
   .info {
-    transition: all 280ms linear ;
+    transition: all 120ms ease-in;
     left: 7.5vw;
     top: 5vh;
     width: 80%;
