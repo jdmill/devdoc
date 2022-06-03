@@ -22,6 +22,8 @@ import ProjectEditor from "./components/projectEditor/ProjectEditor";
 import ComponentEditor from "./components/componentEditor/ComponentEditor";
 import { EditorProvider } from "./utils/EditorState";
 
+import Playground from './userComps/stylePlayground/StylePlayground'; // delete after setting up all user styles and components, or configure as a route for users to see and browse available styles
+
 /* =========================================================================
  * Using Apollo to manage sessions / tokens
  * ========================================================================= */
@@ -71,6 +73,7 @@ function App() {
                 element={<ComponentEditor />}
               />
             </Route>
+            <Route path='playground' element={<Playground />} />
           </Routes>
         </Router>
       </EditorProvider>

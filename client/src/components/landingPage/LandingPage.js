@@ -5,7 +5,7 @@ import Auth from "../../utils/auth";
 
 function LandingPage() {
   return (
-    <main>
+    <main className="landing__page">
       <div className="info">
         <h1 className="splash__title">Dev Doctor</h1>
         <h2 className="splash__subtitle">

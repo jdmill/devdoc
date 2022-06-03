@@ -6,8 +6,8 @@
     overflow: auto;
 }
 
-header,
-footer {
+.devdr__header,
+.footer {
     background-color: var(--clr-primary);
     display: flex;
     justify-content: center;

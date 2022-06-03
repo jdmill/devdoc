@@ -112,7 +112,6 @@ function ProjectEditor() {
                         <button
                           className="comp__list__btns render"
                           name={component._id}
-                          onClick={console.log('eventually this will render code and preview')}
                         >
                           Rend
                         </button>
