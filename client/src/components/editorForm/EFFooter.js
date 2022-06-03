@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function EFFooter() {
+function EFFooter({ openModal }) {
   const [formState, setFormState] = useState({
     copyRight: "",
     attributed: "",
@@ -44,8 +44,8 @@ function EFFooter() {
           Submit
         </button>
       </div>
-      <button className="cancel">
-        <Link to="/../app/projects/project"> Cancel </Link>
+      <button className="cancel" onClick={() => openModal(false)}>
+        Cancel
       </button>
     </form>
   );

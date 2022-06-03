@@ -39,3 +39,8 @@
     padding: 0;
     margin: 2.5rem;
 }
+
+.modal {
+    background-color: var(--clr-primary);
+    overflow: auto;
+    position:fixed;}
