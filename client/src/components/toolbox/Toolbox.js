@@ -5,7 +5,6 @@ import { ADD_COMPONENT } from "../../utils/mutations";
 import './toolbox.css';
 
 function Toolbox() {
-  const [state, dispatch] = useEditorContext();
   const projectId = useParams().projectId
   const [ addComponent, { error }] = useMutation(ADD_COMPONENT);
 
