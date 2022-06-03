@@ -81,6 +81,15 @@
     box-shadow: 0 4px 4px var(--clr-shadow);
     border-radius: .5rem;
     padding: 0;
+
+    margin: 2.5rem;
+}
+
+.modal {
+    background-color: var(--clr-primary);
+    overflow: auto;
+    position:fixed;}
+
     margin: 1.25rem;
 }
 

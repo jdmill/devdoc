@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function EFHeader() {
+function EFHeader({ openModal }) {
   // TODO: make this next line grab the title properties from this component by ID using a graphQL query
   // const userLinks = [links,setLinks] = useState(User.findById(:projectID/:componentId));
 
@@ -22,20 +22,16 @@ function EFHeader() {
   // TODO: make submitting the form update the user component
   // User.findOneAndUpdate(projectId, component ID)
   // const compTitle = [title,setTitle] = useState(User.findById(:projectID/:componentId));
-  const [title,setTitle] = useState('');
+  const [title, setTitle] = useState("");
 
   const handleAddNav = () => {
     const newLink = { title: "", location: "" };
     setLinks(...links, newLink);
   };
 
-  const cancelEdit = () => {
-    window.location.href = "/app/projects/";
-  };
-
   const handleChange = (e) => {
     setTitle(e.target.value);
-  }
+  };
 
   const submitChanges = (e) => {
     e.preventDefault();
@@ -78,7 +74,7 @@ function EFHeader() {
         Add
       </button>
     */}
-      <button className="cancel" onClick={cancelEdit}>
+      <button className="cancel" onClick={() => openModal(false)}>
         Cancel
       </button>
       <button className="submit" onClick={submitChanges}>
