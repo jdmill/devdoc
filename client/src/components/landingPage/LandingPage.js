@@ -17,11 +17,11 @@ function LandingPage() {
         </h2>
         {Auth.loggedIn() ? (
           <Link to="/app/projects">
-            <button>Get Started</button>
+            <button className="splash__button">Get Started</button>
           </Link>
         ) : (
           <Link to="/app/login">
-            <button>Get Started</button>
+            <button className="splash__button">Get Started</button>
           </Link>
         )}
       </div>
@@ -34,6 +34,7 @@ function LandingPage() {
         />
       </div>
       <div className="splash"></div>
+      <a className="credit" href="http://www.freepik.com">Artwork Designed by Cornecoba / Freepik</a>
     </main>
   );
 }

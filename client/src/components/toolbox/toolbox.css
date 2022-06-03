@@ -1,8 +1,27 @@
 .toolbox__button {
-    font-size: 1.5rem;;
+    font-family: var(--fnt-page);
+    font-weight: 800;
+    font-size: 1.0625rem;
+    padding: .625em;
+    min-width: 14vw;
+    width:100%;
+    max-width: 5em;
+    background-color: #18B1E1;
+    border: none;
+    margin-top: 1.5em;
+    color: #fff;
+    border-radius: .5rem;
+}
+
+.toolbox__button:hover {
+    cursor: pointer;
+    box-shadow: inset 0px 4px 4px var(--clr-shadow);
+    text-shadow: none;
+    background-color: #82A4D8;
 }
 
 .button__pool {
+    width: 90%;
     background-color: #fff;
     padding: .5em;
     display: flex;
