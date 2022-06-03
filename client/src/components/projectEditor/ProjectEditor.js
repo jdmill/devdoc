@@ -12,6 +12,7 @@ import EFArticlePhoto from "../editorForm/EFArticle-photo";
 import EFContact from "../editorForm/EFContact";
 import EFFooter from "../editorForm/EFFooter";
 import EFHeader from "../editorForm/EFHeader";
+import CodeBlock from "../codeBlock/CodeBlock";
 
 import "./projectEditor.css";
 
@@ -157,10 +158,11 @@ function ProjectEditor() {
                     </li>
                   );
                 })}
-
             </ul>
           </section>
         )}
+        {/* TODO: give this codeblock a string containing the code for a componennt when the "render" button is clicked for a component Clicking render should also target a className "visible" so the code block onyl appears when it has content in it */} 
+        <CodeBlock str="hello world"/>
         <div className="right__side">
           <div className="top__card">
             <div className="card__header">
@@ -169,7 +171,7 @@ function ProjectEditor() {
               Your Toolbox!
             </h2>
             </div>
-            <Toolbox />
+            <Toolbox str="Hello World"/>
             <p className="tag">Click any component to add it to your project</p>
           </div>
           <div className="bottom__card">

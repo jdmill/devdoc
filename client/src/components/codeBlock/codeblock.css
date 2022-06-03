@@ -1,0 +1,12 @@
+.code__block {
+    font-family: monospace;
+    background-color: #000;
+    color: #fff;
+    padding: .25em .5em;
+    overflow: auto;
+}
+
+/* clicking in the codeblock well select all of the code for easier copying */
+.code__block pre:active {
+    user-select: all;
+}
