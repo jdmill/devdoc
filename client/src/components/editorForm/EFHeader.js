@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function EFHeader({ openModal }) {
+function EFHeader({ closeModal }) {
   // TODO: make this next line grab the title properties from this component by ID using a graphQL query
   // const userLinks = [links,setLinks] = useState(User.findById(:projectID/:componentId));
 
@@ -74,7 +74,7 @@ function EFHeader({ openModal }) {
         Add
       </button>
     */}
-      <button className="cancel" onClick={() => openModal(false)}>
+      <button className="cancel" onClick={() => closeModal(false)}>
         Cancel
       </button>
       <button className="submit" onClick={submitChanges}>

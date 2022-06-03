@@ -88,7 +88,7 @@
 .modal {
     background-color: var(--clr-primary);
     overflow: auto;
-    position:fixed;}
+    position:fixed;
 
     margin: 1.25rem;
 }

@@ -128,7 +128,7 @@ function ProjectEditor() {
                           {openModal &&
                           component.compType === "header" &&
                           targetId === component._id ? (
-                            <EFHeader />
+                            <EFHeader closeModal={setOpenModal}/>
                           ) : null}
                           {openModal &&
                           component.compType === "footer" &&
