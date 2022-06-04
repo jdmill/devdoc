@@ -1,4 +1,10 @@
-body {
+:root {
+  box-sizing: border-box;
+}
+
+.landing__page {
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
 }
 
@@ -86,6 +92,7 @@ body {
   width: auto; 
   height: 120vh;
   transform: translateY(-92%);
+  overflow: hidden;
 }
 
 .credit {
@@ -115,7 +122,4 @@ body {
     overflow-y: auto;
   }
 
-  body {
-    overflow: hidden;
-  }
 }

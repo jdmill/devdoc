@@ -23,9 +23,9 @@ const typeDefs = gql`
   }
 
   type Component {
-    _id: ID!
+    _id: ID
     title: String
-    compType: String!
+    compType: String
     imageUrl: String
     text: String
     contact: Boolean
@@ -35,7 +35,7 @@ const typeDefs = gql`
     user(user_id: ID!): User
     users: [User]
     project(project_id: ID!): Project
-    component(component_id: ID!): Component
+    component(project_id: ID!, component_id: ID!): Component
     loggedInUser: User
   }
 

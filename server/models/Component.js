@@ -15,12 +15,6 @@ const componentSchema = new Schema({
       enum: ["header", "article-photo", "contact", "footer"],
     },
   },
-  links: [
-    {
-      linkName: String,
-      url: String,
-    },
-  ],
   createdAt: {
     type: Date,
     default: Date.now,

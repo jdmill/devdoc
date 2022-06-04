@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function EFArticlePhoto({ openModal }) {
+function EFArticlePhoto({ closeModal }) {
   const [formState, setFormState] = useState({
     imgURL: "",
     article: "",
@@ -44,7 +44,7 @@ function EFArticlePhoto({ openModal }) {
           Submit
         </button>
       </div>
-      <button className="cancel" onClick={() => openModal(false)}>
+      <button className="cancel" onClick={() => closeModal(false)}>
         Cancel
       </button>
     </form>
