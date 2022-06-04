@@ -1,4 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
+const e = require("express");
 const { User, Project, Component } = require("../models");
 const { signToken } = require("../utils/auth");
 
@@ -129,16 +130,27 @@ const resolvers = {
       }
     },
     // TODO: double check this is working/ not sure I got the syntax right to update an array in an object
-    editComponent: async (parent, args, { project_id, component_id }, context) => {
-      if (context.user) {
-        return await Project.findOneAndUpdate(
-          { _id: project_id },
-          {
-            $set: { componentArray: { _id: component_id }, args },
-          },
-          { new: true }
-        );
-      }
+    editComponent: async (parent, { project_id, component_id, title, text, imageUrl }, context) => {
+      const proj = await Project.findOne({ _id: project_id });
+      const compArr = proj.componentArray;
+      // console.log(compArr);
+      const newCompArr = compArr.map((el) => {
+        if (el.id === component_id){
+          if (title) { el.title = (title.length > 0) ? title : el.title; };
+          if (text) { el.text = (text.length > 0) ? text : el.text; }
+          if (imageUrl) { el.imageUrl = (imageUrl.length > 0) ? imageUrl : el.imageUrl; };
+        };
+        return el;
+      });
+      const editedProj = await Project.findOneAndUpdate(
+        { _id: project_id },
+        {
+          $set: { componentArray: newCompArr },
+        },
+        { new: true }
+      );
+
+      return editedProj;
     },
   },
 };
