@@ -1,9 +1,15 @@
+import { useEffect } from 'react';
 import doctor from "../../assets/image/doctor-HRCustom.jpeg";
 import "./landingPage.css";
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
 
 function LandingPage() {
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+  }, []);
+
   return (
     <main className="landing__page">
       <div className="info">

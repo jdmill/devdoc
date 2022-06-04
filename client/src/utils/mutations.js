@@ -54,17 +54,17 @@ export const ADD_COMPONENT = gql`
   }
 `;
 
-// not working yet TODO: fix this
 export const EDIT_COMPONENT = gql`
-mutation RemoveComponent($projectId: ID!, $componentId: ID!) {
-  removeComponent(component_id: $componentId) {
+mutation EditComponent($projectId: ID!, $componentId: ID!, $title: String, $text: String, $imageUrl: String) {
+  editComponent(project_id: $projectId, component_id: $componentId, title: $title, text: $text, imageUrl: $imageUrl) {
     _id
     title
+    imageUrl
+    text
   }
 }
 `;
 
-// not working yet TODO: fix this
 export const REMOVE_COMPONENT = gql`
 mutation RemoveComponent($projectId: ID!, $componentId: ID!) {
   removeComponent(project_id: $projectId, component_id: $componentId) {

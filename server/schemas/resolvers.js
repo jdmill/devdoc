@@ -24,7 +24,15 @@ const resolvers = {
     project: async (parent, { project_id }) => {
       return Project.findOne({ _id: project_id });
     },
+
+    //need both project id and component id to iterate through array
+    component: async (parent, {project_id, component_id}) => {
+      const proj = await Project.findOne({ _id: project_id }); // go get the whole project (target by id)
+      const comp = proj.componentArray.filter((comp) => comp._id === component_id);
+      return comp[0];
+    }
   },
+
   Mutation: {
     // Authorization added upon account creation
     addUser: async (parent, args) => {
@@ -129,28 +137,33 @@ const resolvers = {
         );
       }
     },
-    // TODO: double check this is working/ not sure I got the syntax right to update an array in an object
+    
+    // had to target the array of a project, target and edit one component and return new entire array with the updated component
     editComponent: async (parent, { project_id, component_id, title, text, imageUrl }, context) => {
-      const proj = await Project.findOne({ _id: project_id });
-      const compArr = proj.componentArray;
-      // console.log(compArr);
-      const newCompArr = compArr.map((el) => {
-        if (el.id === component_id){
-          if (title) { el.title = (title.length > 0) ? title : el.title; };
-          if (text) { el.text = (text.length > 0) ? text : el.text; }
-          if (imageUrl) { el.imageUrl = (imageUrl.length > 0) ? imageUrl : el.imageUrl; };
-        };
-        return el;
-      });
-      const editedProj = await Project.findOneAndUpdate(
-        { _id: project_id },
-        {
-          $set: { componentArray: newCompArr },
-        },
-        { new: true }
-      );
+      if (context.user) {
+        const proj = await Project.findOne({ _id: project_id }); // go get the whole project (target by id)
+        const compArr = proj.componentArray; // set its componentArray to a variable
 
-      return editedProj;
+        const newCompArr = compArr.map((el) => { // iterate through...
+          if (el.id === component_id){ // do the things when the component id matches the mutation request...
+            // update the title, text, imageUrl (if in the api call AND not an empty string)
+            if (title) { el.title = (title.length > 0) ? title : el.title; };
+            if (text) { el.text = (text.length > 0) ? text : el.text; }
+            if (imageUrl) { el.imageUrl = (imageUrl.length > 0) ? imageUrl : el.imageUrl; };
+          };
+          return el; // repopulate array
+        });
+        const editedProj = await Project.findOneAndUpdate(
+          { _id: project_id }, // target by id
+          {
+            $set: { componentArray: newCompArr }, // overwrite entire array with the one component updated
+          },
+          { new: true } // return the project post update
+        );
+        
+        console.log("edit component ran");
+        return editedProj; //return the project
+      };
     },
   },
 };

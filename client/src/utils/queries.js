@@ -79,3 +79,16 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const QUERY_COMPONENT = gql`
+query Query($projectId: ID!, $componentId: ID!) {
+  component(project_id: $projectId, component_id: $componentId) {
+    _id
+    title
+    compType
+    imageUrl
+    text
+    contact
+  }
+}
+`;

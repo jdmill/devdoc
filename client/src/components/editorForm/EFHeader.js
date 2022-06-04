@@ -1,48 +1,38 @@
-import { useState } from "react";
+import { useState, } from "react";
+import { useMutation } from "@apollo/client";
+import {EDIT_COMPONENT} from '../../utils/mutations';
 
-function EFHeader({ closeModal }) {
-  // TODO: make this next line grab the title properties from this component by ID using a graphQL query
-  // const userLinks = [links,setLinks] = useState(User.findById(:projectID/:componentId));
+function EFHeader({ closeModal, projId, compId }) {
+  const [editComponent, { error }] = useMutation(EDIT_COMPONENT);
 
-  // TODO: make this next line grab the links properties from this component by ID using a graphQL query
-  // const userLinks = [links,setLinks] = useState(User.findById(:projectID/:componentId));
-  const placeholderLinks = [
-    // TODO: replace this placeholder array with the one from the DB
-    {
-      title: "About",
-      location: "#about",
-    },
-    {
-      title: "Contact",
-      location: "#contact",
-    },
-  ]; // TODO: remove this placeholder and use the above commented out logic
-  const [links, setLinks] = useState(placeholderLinks);
-
-  // TODO: make submitting the form update the user component
-  // User.findOneAndUpdate(projectId, component ID)
-  // const compTitle = [title,setTitle] = useState(User.findById(:projectID/:componentId));
   const [title, setTitle] = useState("");
-
-  const handleAddNav = () => {
-    const newLink = { title: "", location: "" };
-    setLinks(...links, newLink);
-  };
+  const [imageUrl, setImageUrl] = useState("");
 
   const handleChange = (e) => {
-    setTitle(e.target.value);
+    if (e.target.id === "title") {
+      setTitle(e.target.value);
+    } else {
+      setImageUrl(e.target.value);
+    }
   };
 
   const submitChanges = (e) => {
     e.preventDefault();
-    // TODO: add a mutation request for user/project/component, findOneAndUpdate(_id);
-    window.location.href = "/app/projects/";
+    editComponent({
+      variables: {
+        projectId: projId,
+        componentId: compId,
+        title: title,
+        imageUrl: imageUrl
+      }
+    });
+    window.location.reload();
   };
 
   return (
     <form action="">
       <h2>A form for editing a header component</h2>
-      <label htmlFor="title"></label>
+      <label htmlFor="title">Header Title</label>
       <input
         onChange={handleChange}
         className="full-width-input"
@@ -50,30 +40,14 @@ function EFHeader({ closeModal }) {
         type="text"
         value={title}
       />
-      {/*links.map((link) => {
-        <div className="conditional__fields">
-          <label htmlFor={link.title}>Navlink Label</label>
-          <input
-            className="full-width-input"
-            id={link.title}
-            key={link.title}
-            type="text"
-            value={link.title}
-          />
-          <label htmlFor={link.location}>Navlink Location</label>
-          <input
-            className="full-width-input"
-            id={link.location}
-            key={link.location}
-            type="text"
-            value={link.location}
-          />
-        </div>;
-      }) */}
-      {/* <button className="add__new" onClick={handleAddNav}>
-        Add
-      </button>
-    */}
+      <label htmlFor="title">Hero Image URL</label>
+      <input
+        onChange={handleChange}
+        className="full-width-input"
+        id="imageUrl"
+        type="text"
+        value={imageUrl}
+      />
       <button className="cancel" onClick={() => closeModal(false)}>
         Cancel
       </button>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function EFContact({ openModal }) {
+function EFContact({ closeModal }) {
   const [formState, setFormState] = useState({
     firstName: "",
     lastName: "",
@@ -64,7 +64,7 @@ function EFContact({ openModal }) {
           Submit
         </button>
       </div>
-      <button className="cancel" onClick={() => openModal(false)}>
+      <button className="cancel" onClick={() => closeModal(false)}>
         Cancel
       </button>
     </form>

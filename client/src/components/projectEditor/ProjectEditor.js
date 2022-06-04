@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useEditorContext } from "../../utils/EditorState";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_PROJECT } from "../../utils/queries";
-import { REMOVE_COMPONENT, EDIT_COMPONENT } from "../../utils/mutations";
+import { REMOVE_COMPONENT } from "../../utils/mutations";
 // import { useState } from "react";
 import { ADD_PROJECT } from "../../utils/actions";
 import Toolbox from "../toolbox/Toolbox";
@@ -44,7 +44,6 @@ function ProjectEditor() {
   }, [data, dispatch, loading]);
 
   const [removeComponent, { error }] = useMutation(REMOVE_COMPONENT);
-  const [editComponent, { editError }] = useMutation(EDIT_COMPONENT);
 
   const HandleEditRequest = async (e) => {
     const componentId = e.target.name;
@@ -135,22 +134,22 @@ function ProjectEditor() {
                           {openModal &&
                           component.compType === "header" &&
                           targetId === component._id ? (
-                            <EFHeader closeModal={setOpenModal}/>
+                            <EFHeader projId={projectId} compId={component.id} closeModal={setOpenModal}/>
                           ) : null}
                           {openModal &&
                           component.compType === "footer" &&
                           targetId === component._id ? (
-                            <EFFooter />
+                            <EFFooter projId={projectId} compId={component.id} closeModal={setOpenModal}/>
                           ) : null}
                           {openModal &&
                           component.compType === "article-photo" &&
                           targetId === component._id ? (
-                            <EFArticlePhoto />
+                            <EFArticlePhoto compId={component.id} closeModal={setOpenModal}/>
                           ) : null}
                           {openModal &&
                           component.compType === "contact" &&
                           targetId === component._id ? (
-                            <EFContact />
+                            <EFContact projId={projectId} compId={component.id} closeModal={setOpenModal}/>
                           ) : null}
                         </div>
                       </div>
