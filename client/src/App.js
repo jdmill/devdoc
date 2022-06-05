@@ -17,6 +17,7 @@ import LandingPage from "./components/landingPage/LandingPage";
 import Container from "./components/container/Container";
 import SignUp from "./components/signUp/SignUp";
 import Login from "./components/login/Login";
+import UserGuide from "./components/userGuide/UserGuide";
 import MyProjects from "./components/myProjects/MyProjects";
 import ProjectEditor from "./components/projectEditor/ProjectEditor";
 import ComponentEditor from "./components/componentEditor/ComponentEditor";
@@ -72,6 +73,7 @@ function App() {
                 path="projects/:projectId/:componentId"
                 element={<ComponentEditor />}
               />
+              <Route path="userGuide" element={<UserGuide />} />
             </Route>
             <Route path='playground' element={<Playground />} />
           </Routes>
