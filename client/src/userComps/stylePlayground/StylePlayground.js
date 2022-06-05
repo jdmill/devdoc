@@ -26,7 +26,7 @@ The present-giver should also ensure that the receiver can commit long-term to p
             photo={ puppyPhoto }
         />
         <UserContact theme="Elegant" title="I want to Adopt a Puppy" text="captainPlanet@pbs.org"/>
-        <UserFooter theme="Elegant" title="Created 2022©"/>
+        <UserFooter theme="Elegant" title="Created 2022©" text="Made by people"/>
         
         <UserHeader theme="Fantasy" title="Fantasy" photo={ hero }/>
         <UserArticle
@@ -42,7 +42,7 @@ The present-giver should also ensure that the receiver can commit long-term to p
             photo={ puppyPhoto }
         />
         <UserContact theme="Fantasy" title="I want to Adopt a Puppy" text="captainPlanet@pbs.org"/>
-        <UserFooter theme="Fantasy" title="Created 2022©"/>
+        <UserFooter theme="Fantasy" title="Created 2022©" text="Made by people"/>
 
         <UserHeader theme="Navy" title="Navy" photo={ hero }/>
         <UserArticle
@@ -58,7 +58,7 @@ The present-giver should also ensure that the receiver can commit long-term to p
             photo={ puppyPhoto }
         />
         <UserContact theme="Navy" title="I want to Adopt a Puppy" text="captainPlanet@pbs.org"/>
-        <UserFooter theme="Navy" title="Created 2022©"/>
+        <UserFooter theme="Navy" title="Created 2022©" text="Made by people"/>
 
         <UserHeader theme="News" title="News" photo={ hero }/>
         <UserArticle
@@ -74,7 +74,7 @@ The present-giver should also ensure that the receiver can commit long-term to p
             photo={ puppyPhoto }
         />
         <UserContact theme="News" title="I want to Adopt a Puppy" text="captainPlanet@pbs.org"/>
-        <UserFooter theme="News" title="Created 2022©"/>
+        <UserFooter theme="News" title="Created 2022©" text="Made by people"/>
 
         <UserHeader theme="Tech" title="Tech" photo={ hero }/>
         <UserArticle
@@ -90,7 +90,7 @@ The present-giver should also ensure that the receiver can commit long-term to p
             photo={ puppyPhoto }
         />
         <UserContact theme="Tech" title="I want to Adopt a Puppy" text="captainPlanet@pbs.org"/>
-        <UserFooter theme="Tech" title="Created 2022©"/>
+        <UserFooter theme="Tech" title="Created 2022©" text="Made by people"/>
 
         <UserHeader theme="Whimsical" title="Whimsical" photo={ hero }/>
         <UserArticle
@@ -106,7 +106,7 @@ The present-giver should also ensure that the receiver can commit long-term to p
             photo={ puppyPhoto }
         />
         <UserContact theme="Whimsical" title="I want to Adopt a Puppy" text="captainPlanet@pbs.org"/>
-        <UserFooter theme="Whimsical" title="Created 2022©"/>
+        <UserFooter theme="Whimsical" title="Created 2022©" text="Made by people"/>
         </div>
     );
 };
