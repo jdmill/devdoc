@@ -15,6 +15,9 @@ function Navbar() {
           <Link className="nav__item" to="/">
             Home
           </Link>
+          <Link className="nav__item" to="/app/userGuide">
+            User Guide
+          </Link>
           <Link className="nav__item" to="/app/projects">
             My Projects
           </Link>
@@ -24,14 +27,14 @@ function Navbar() {
         </ul>
       ) : (
         <ul className="nav__list">
+          <Link className="nav__item" to="/app/userGuide">
+            User Guide
+          </Link>
           <Link className="nav__item" to="/app/signup">
             SignUp
           </Link>
           <Link className="nav__item" to="/app/login">
             Login
-          </Link>
-          <Link className="nav__item" to="/app/userGuide">
-            User Guide
           </Link>
         </ul>
       )}
