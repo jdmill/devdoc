@@ -8,7 +8,7 @@
     max-width: 5em;
     background-color: #18B1E1;
     border: none;
-    margin-top: 1.5em;
+    margin: .5em;
     color: #fff;
     border-radius: .5rem;
 }
@@ -21,9 +21,8 @@
 }
 
 .button__pool {
-    width: 90%;
     background-color: #fff;
-    padding: .5em;
+    padding: 1.5em 2em;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

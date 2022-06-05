@@ -1,8 +1,14 @@
+import { useState } from 'react';
+import userHeader from '../../userComps/userHeaders/userHeaders';
+import userArticles from '../../userComps/userAtricles/UserArticles';
+import userContact from '../../userComps/userContacts/UserContacts';
+import userFooter from '../../userComps/userFooters/userFooters';
+
 function ProjectPreview() {
+
   return (
-    <div className="button__pool">
-      <button className="toolbox__button">Change Theme</button>
-      {/* TODO: figure out how to render a user component with the props of their options passed in, maybe state management on the parent component for this which is holding the editor form for the component and THIS component too */}
+    <div className="comp__preview">
+  
     </div>
   );
 }

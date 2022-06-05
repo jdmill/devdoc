@@ -29,8 +29,6 @@ const componentSchema = new Schema({
   },
   text: {
     type: String,
-    minlength: 12,
-    maxlength: 255,
     default: 'Edit this component to change this text'
   },
   contact: {

@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 const secret = 'proj3group5';
-const expiration = '4h'; // 4 hours
+const expiration = '365d'; // 4 hours
 
 /* =========================================================================
  * We export the signToken() function that takes in a user object and adds the email, name, and _id properties to the token, along with the secret and expiration
