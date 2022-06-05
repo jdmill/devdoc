@@ -8,6 +8,21 @@
     display: block;
 }
 
+.full__wide {
+    width: 100%;
+}
+
+.Elegant--footer,
+.Fantasy--footer,
+.Navy--footer,
+.News--footer,
+.Tech--footer,
+.Whimsical--footer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
 .my__background {
     width: 100%;
     height: 100%;
@@ -100,7 +115,8 @@
     opacity: 50%;
 }
 
-.Elegant--copyright {
+.Elegant--copyright,
+.Elegant--contributions {
     margin-left: 2em;
     font-family: Garamond, Cursive, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
     font-size: 1.125rem;
@@ -161,8 +177,9 @@
     opacity: 50%;
 }
 
-.Fantasy--copyright {
-    margin-left: 2em;
+.Fantasy--copyright,
+.Fantasy--contributions {
+    margin: 0.5em 2em;
     font-family: Luminari, Georgia, Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.125rem;
 }
@@ -222,8 +239,9 @@
     opacity: 50%;
 }
 
-.Navy--copyright {
-    margin-left: 2em;
+.Navy--copyright,
+.Navy--contributions {
+    margin: 0.5em 2em;
     font-family: Georgia, Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.125rem;
 }
@@ -287,8 +305,9 @@
     opacity: 50%;
 }
 
-.News--copyright {
-    margin-left: 2em;
+.News--copyright,
+.News--contributions {
+    margin: 0.5em 2em;
     font-family: impact;
     font-size: 1.125rem;
 }
@@ -340,8 +359,9 @@
     text-shadow: 0 2px 8px #00a700;
 }
 
-.Tech--copyright {
-    margin-left: 2em;
+.Tech--copyright,
+.Tech--contributions {
+    margin: 0.5em 2em;
     font-family: monospace;
     font-size: 1.125rem;
 }
@@ -375,7 +395,8 @@
     opacity: 50%;
 }
 
-.Whimsical--header {
+.Whimsical--header,
+.Whimsical--footer {
     padding: .75em 0 .75em 2em; 
     background-color: #edebc8;
     color: #630072;
@@ -457,8 +478,9 @@
     opacity: 50%;
 }
 
-.Whimsical--copyright {
-    margin-left: 2em;
+.Whimsical--copyright,
+.Whimsical--contributions {
+    margin: 0.5em 2em;
     font-family: 'Bradley Hand';
     font-size: 1.125rem;
 }

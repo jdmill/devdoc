@@ -84,4 +84,3 @@ function UserContact({ theme, title, text }) {
 
 export default UserContact;
 
-//className={`${theme}--background my__background`}

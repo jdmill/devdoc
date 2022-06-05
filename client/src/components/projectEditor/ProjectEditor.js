@@ -227,10 +227,12 @@ function ProjectEditor() {
               <h2 className="card__title">Project Preview</h2>
             </div>
             <ProjectPreview 
-            compTitle={thisCompTitle}
-            compType={thisCompType}
-            compImage={thisCompImage}
-            compText={thisCompText}/>
+              compTitle={thisCompTitle}
+              compType={thisCompType}
+              compImage={thisCompImage}
+              compText={thisCompText}
+              compTheme={currentTheme}
+            />
           </div>
         </div>
       </div>
