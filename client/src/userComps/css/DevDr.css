@@ -16,30 +16,57 @@
     align-items: center;
 }
 
+.my__labels {
+    width: 100%;
+    display: block;
+    font-family: var(--fnt-page);
+    margin-top: 1.5em;
+    margin-bottom: .25em;
+    transition: all 120ms ease-in;
+}
+
+.my__first__label {
+    margin-top: 0;
+}
+
+.my__input {
+    border: 2px solid #DADADA;
+    border-radius: .3rem;
+    width: calc(100% - .87rem);
+    padding: .625em .375em; /* 5/8 & 3/8 */
+}
+
+.message__input {
+    min-height: 6em;
+    overflow-y: auto;
+}
+
 .article__photo {
     width: 100%;
     height: auto;
+    border-radius: .75rem;;
 }
 
-.elegant--header,
-.elegant--footer {
+.Elegant--header,
+.Elegant--footer {
     padding: .75em 0 .75em 2em; 
     background-color: #000;
     color: #fff;
 }
 
-.elegant--h1 {
+.Elegant--h1 {
     font-family: Garamond, Cursive, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', sans-serif;
     font-size: 1.75rem; 
 }
 
-.elegant--h2 {
+.Elegant--h2 {
     font-family: Didot,'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
     font-size: 1.875rem;
     font-weight: 800;
+    margin-top: .25em;
 }
 
-.elegant--article__card {
+.Elegant--article__card {
     width: clamp(200px, 95%, 960px);
     background-color: #fff;
     padding: 1.5rem 2.5rem;
@@ -48,17 +75,33 @@
     box-shadow: 0 4px 4px #999;
 }
 
-.elegant--background {
+.Elegant--background {
     background-color: #DEDEDE;
 }
 
-.elegant--body {
+.Elegant--body {
     white-space: pre-wrap;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 1.5rem;
 }
 
-.elegant--copyright {
+.Elegant--submit {
+    font-family: Garamond, Cursive, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', sans-serif;
+    background-color: #000;
+    color: #fff;
+    font-size: 1.875rem;
+    margin: .5em 0;
+    padding: .25em 1.125em;
+    float: right;
+    border-radius: .5em;;
+}
+
+.Elegant--submit:hover {
+    opacity: 50%;
+}
+
+.Elegant--copyright {
+    margin-left: 2em;
     font-family: Garamond, Cursive, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
     font-size: 1.125rem;
 }
@@ -81,6 +124,7 @@
     font-size: 1.875rem;
     font-weight: 800;
     color: #196d20;
+    margin-top: .25em;
 }
 
 .Fantasy--article__card {
@@ -102,7 +146,23 @@
     font-size: 1.5rem;
 }
 
+.Fantasy--submit {
+    font-family: Luminari, Georgia, Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #0f4b14;
+    color: #d5d5d5;
+    font-size: 1.875rem;
+    margin: .5em 0;
+    padding: .25em 1.125em;
+    float: right;
+    border-radius: .5em;;
+}
+
+.Fantasy--submit:hover {
+    opacity: 50%;
+}
+
 .Fantasy--copyright {
+    margin-left: 2em;
     font-family: Luminari, Georgia, Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.125rem;
 }
@@ -120,7 +180,50 @@
     font-size: 1.75rem; 
 }
 
+.Navy--h2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.875rem;
+    font-weight: 800;
+    color: #1A2890;
+    margin-top: .25em;
+}
+
+.Navy--article__card {
+    width: clamp(200px, 95%, 960px);
+    background-color: #fffdf3;
+    padding: 1.5rem 2.5rem;
+    margin: 1.5rem 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgb(0, 0, 0);
+}
+
+.Navy--background {
+    background-color: #7a98a0;
+}
+
+.Navy--body {
+    white-space: pre-wrap;
+    font-family: Verdana , Times, serif;
+    font-size: 1.375rem;
+}
+
+.Navy--submit {
+    font-family: Georgia, Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #1A2890;
+    color: #ffDf64;
+    font-size: 1.875rem;
+    margin: .5em 0;
+    padding: .25em 1.125em;
+    float: right;
+    border-radius: .5em;;
+}
+
+.Navy--submit:hover {
+    opacity: 50%;
+}
+
 .Navy--copyright {
+    margin-left: 2em;
     font-family: Georgia, Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.125rem;
 }
@@ -138,7 +241,54 @@
     font-size: 1.75rem; 
 }
 
+.News--h2 {
+    width: fit-content;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.875rem;
+    font-weight: 800;
+    color: #fff;
+    background-color: #b80000;
+    padding: 0.5em 3em 0.5em 1em;
+    border-radius: 1em;
+    margin-top: .125em;
+}
+
+.News--article__card {
+    width: clamp(200px, 95%, 960px);
+    background-color: #ffffff;
+    padding: 1.5rem 2.5rem;
+    margin: 1.5rem 2.5rem;
+    border-radius: 1.5em;
+    box-shadow: 0 4px 8px rgb(0, 0, 0);
+}
+
+.News--background {
+    background-color: #969696;
+}
+
+.News--body {
+    white-space: pre-wrap;
+    font-family: Verdana , Times, serif;
+    font-size: 1.375rem;
+}
+
+.News--submit {
+    font-family: impact;
+    background-color: #b80000;
+    color: #fff;
+    font-size: 1.875rem;
+    margin: .5em 0;
+    padding: .25em 1.125em;
+    float: right;
+    border-radius: 1em;
+}
+
+.News--submit:hover {
+    opacity: 50%;
+}
+
 .News--copyright {
+    margin-left: 2em;
     font-family: impact;
     font-size: 1.125rem;
 }
@@ -153,12 +303,76 @@
 .Tech--h1 {
     font-family: monospace;
     font-weight: 400;
-    font-size: 1.75rem; 
+    font-size: 1.75rem;
+    text-shadow: 0 2px 8px #00ff00;
+}
+
+.Tech--h2 {
+    width: fit-content;
+    font-family: monospace;
+    font-size: 1.875rem;
+    font-weight: 400;
+    color: #00ff00;
+    padding: 0.5em 3em 0.5em 1em;
+    border-radius: 1em;
+    margin-top: .125em;
+    text-shadow: 0 2px 8px #00ff00
+}
+
+.Tech--article__card {
+    width: clamp(200px, 95%, 960px);
+    background-color: #353535;
+    padding: 1.5rem 2.5rem;
+    margin: 1.5rem 2.5rem;
+    border-radius: 1.5em;
+    box-shadow: 0 4px 8px #00ff00;
+}
+
+.Tech--background {
+    background-color: #000000;
+}
+
+.Tech--body {
+    color: #fff;
+    white-space: pre-wrap;
+    font-family: monospace;
+    font-size: 1.375rem;
+    text-shadow: 0 2px 8px #00a700;
 }
 
 .Tech--copyright {
+    margin-left: 2em;
     font-family: monospace;
     font-size: 1.125rem;
+}
+
+.Tech--label {
+    width: 100%;
+    display: block;
+    font-family: monospace;
+    color: #fff;
+    font-size: 1.375rem;
+    text-shadow: 0 2px 8px #00a700;
+    margin-top: 1.5em;
+    margin-bottom: .25em;
+    transition: all 120ms ease-in;
+}
+
+.Tech--submit {
+    font-family: monospace;
+    background-color: #000;
+    color: #00ff00;
+    font-size: 1.875rem;
+    margin: .5em 0;
+    padding: .25em 1.125em;
+    float: right;
+    border-radius: .5em;
+    box-shadow: 0 2px 8px #00ff00;
+    text-shadow: 0 2px 8px #00ff00;
+}
+
+.Tech--submit:hover {
+    opacity: 50%;
 }
 
 .Whimsical--header {
@@ -170,9 +384,81 @@
 .Whimsical--h1 {
     font-family: 'Bradley Hand';
     font-weight: 400;
-    font-size: 1.75rem; 
+    font-size: 1.75rem;
 }
+
+.Whimsical--h2:before{
+    content: "";
+    display: block;
+    left: 0;
+    top: 48%;
+    width:10rem;
+    height: .25rem;
+    background-color: #630072;
+    position: absolute;
+    transform: translateX( -105%);
+    border-radius: 100px;;
+}
+
+.Whimsical--h2:after {
+    content: "";
+    display: block;
+    right: 0;
+    top: 48%;
+    width:10rem;
+    height: .25rem;
+    background-color: #630072;
+    position: absolute;
+    transform: translateX(105%);
+    border-radius: 100px;;
+}
+
+.Whimsical--h2 {
+    width: fit-content;
+    font-family: 'Bradley Hand';
+    font-size: 1.875rem;
+    font-weight: 800;
+    color: #630072;
+    margin: .125em auto .5em auto;
+    position: relative; 
+}
+
+.Whimsical--article__card {
+    width: clamp(200px, 95%, 960px);
+    background-color: #ffffff;
+    padding: 1.5rem 2.5rem;
+    margin: 1.5rem 2.5rem;
+    border-radius: 1.5em;
+    box-shadow: 0 4px 8px rgb(0, 0, 0);
+}
+
+.Whimsical--background {
+    background-color: #a287a1;
+}
+
+.Whimsical--body {
+    white-space: pre-wrap;
+    font-family: 'Bradley Hand';
+    font-size: 1.375rem;
+}
+
+.Whimsical--submit {
+    font-family: 'Bradley Hand';
+    background-color: #edebc8;
+    color: #630072;
+    font-size: 1.875rem;
+    margin: .5em 0;
+    padding: .25em 1.125em;
+    float: right;
+    border-radius: .5em;;
+}
+
+.Whimsical--submit:hover {
+    opacity: 50%;
+}
+
 .Whimsical--copyright {
+    margin-left: 2em;
     font-family: 'Bradley Hand';
     font-size: 1.125rem;
 }

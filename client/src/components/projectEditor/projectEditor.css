@@ -8,8 +8,13 @@
     overflow: auto;
 }
 
-.left__card {
+.left__side {
     width: calc(40% - 2.5rem);
+    display: flex;
+    flex-direction: column;
+}
+
+.left__card {
     min-height: 20%;
     background-color: #fff;
     box-shadow: 0 4px 4px var(--clr-shadow);
@@ -82,22 +87,20 @@
     border-radius: .5rem;
     padding: 0;
 
-    margin: 2.5rem;
-}
-
-.modal {
-    background-color: var(--clr-primary);
-    overflow: auto;
-    position:fixed;
-    margin: 1.25rem;
+    margin: 1.1255rem;
 }
 
 .tag {
     margin: 1.25em 1.5em;
 }
 
+.comp__type__label {
+    color: #222222;
+    font-size: .8rem;;
+}
+
 @media screen and (max-width: 1100px) {
-    .left__card {
+    .left__side {
         width: calc(50% - 2.5rem);
         margin: 1.25rem;
     }
@@ -112,7 +115,7 @@
     .editor {
         flex-direction: column;
     }
-    .left__card {
+    .left__side {
         width: 95%;
         margin: 1.2rem;
         min-height: fit-content;

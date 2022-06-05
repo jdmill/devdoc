@@ -55,8 +55,8 @@ export const ADD_COMPONENT = gql`
 `;
 
 export const EDIT_COMPONENT = gql`
-mutation EditComponent($projectId: ID!, $componentId: ID!, $title: String, $text: String, $imageUrl: String) {
-  editComponent(project_id: $projectId, component_id: $componentId, title: $title, text: $text, imageUrl: $imageUrl) {
+mutation EditComponent($projectId: ID!, $componentId: ID!, $title: String, $imageUrl: String, $text: String) {
+  editComponent(project_id: $projectId, component_id: $componentId, title: $title, imageUrl: $imageUrl, text: $text) {
     _id
     title
     imageUrl
