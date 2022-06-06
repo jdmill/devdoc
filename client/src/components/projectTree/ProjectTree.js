@@ -1,7 +1,7 @@
 // import { Project } from '../../../../server/models';
 
 // function ProjectTree({_id}) {
-//     const 
+//     const
 //     return (
 //         <div className="container">
 //             <h2 className="topLineContainer">Project Tree</h2>
@@ -10,11 +10,11 @@
 //                 {Project.map((componentArray) => {
 //                     <div>
 //                         <li>{componentArray.title}</li>
-//                         <button className="" onClick={}>Edit</button>      
-//                         <button className="" onClick={}>Delete</button> 
-//                     </div>  
+//                         <button className="" onClick={}>Edit</button>
+//                         <button className="" onClick={}>Delete</button>
+//                     </div>
 //                 })}
-//             </ul>  
+//             </ul>
 //         </div>
 //     );
 // };

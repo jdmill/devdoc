@@ -1,12 +1,12 @@
-import { useParams } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
+import { useParams } from "react-router-dom";
+import { useMutation } from "@apollo/client";
 import { useEditorContext } from "../../utils/EditorState";
 import { ADD_COMPONENT } from "../../utils/mutations";
-import './toolbox.css';
+import "./toolbox.css";
 
 function Toolbox() {
-  const projectId = useParams().projectId
-  const [ addComponent, { error }] = useMutation(ADD_COMPONENT);
+  const projectId = useParams().projectId;
+  const [addComponent, { error }] = useMutation(ADD_COMPONENT);
 
   const addComp = async (projId, title, compType, contact) => {
     try {
@@ -16,27 +16,27 @@ function Toolbox() {
           title: title,
           projectId: projId, // right hand values are from parameter/argument passed in
           compType: compType,
-          contact: contact
+          contact: contact,
         },
       });
       window.location.assign(`/app/projects/${projId}`);
     } catch (err) {
       console.error(err);
-    };
+    }
   };
-  
+
   function addArticle() {
     addComp(projectId, "new article", "article-photo", false);
-  };
+  }
   function addFooter() {
     addComp(projectId, "new footer", "footer", false);
-  };
+  }
   function addHeader() {
     addComp(projectId, "new header", "header", false);
-  };
+  }
   function addContact() {
     addComp(projectId, "new contact", "contact", true);
-  };
+  }
 
   return (
     <ul className="button__pool">

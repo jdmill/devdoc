@@ -1,13 +1,19 @@
-import { useState, useEffect } from 'react';
-import './codeblock.css';
+import { useState, useEffect } from "react";
+import "./codeblock.css";
 
-function CodeBlock ({ compTitle, compType, compImage, compText, compTheme, str }) {
+function CodeBlock({
+  compTitle,
+  compType,
+  compImage,
+  compText,
+  compTheme,
+  str,
+}) {
+  const [code, setCode] = useState("");
 
-    const [code, setCode] = useState('');
-
-    useEffect(() => {
-        if (compImage !== "/" && compType === 'header') {
-            setCode(`
+  useEffect(() => {
+    if (compImage !== "/" && compType === "header") {
+      setCode(`
             
 import './DevDr.css'; 
 
@@ -25,8 +31,8 @@ function UserHeader() {
 export default UserHeader;
 
             `);
-        } else if (compType === 'header') {
-        setCode(`
+    } else if (compType === "header") {
+      setCode(`
         
 import './DevDr.css';
 
@@ -43,8 +49,8 @@ function UserHeader() {
 export default UserHeader;   
 
                 `);
-        } else if (compImage !== "/" && compType === 'article-photo') {
-            setCode(`
+    } else if (compImage !== "/" && compType === "article-photo") {
+      setCode(`
 
 import './DevDr.css';
 
@@ -63,8 +69,8 @@ function UserArticle() {
 export default UserArticle;
 
             `);
-        } else if (compType === 'article-photo') {
-            setCode(`
+    } else if (compType === "article-photo") {
+      setCode(`
 
 import './DevDr.css';
 
@@ -82,8 +88,8 @@ function UserArticle() {
 export default UserArticle;
 
             `);
-        } else if (compType === 'contact') {
-            setCode(`
+    } else if (compType === "contact") {
+      setCode(`
 
 import React, { useState } from 'react';
 import './DevDr.css';
@@ -172,8 +178,8 @@ function UserContact() {
 export default UserContact;
 
             `);
-        } else if (compText !== " " && compType === 'footer') {
-            setCode(`
+    } else if (compText !== " " && compType === "footer") {
+      setCode(`
 
 import './DevDr.css';
 
@@ -191,8 +197,8 @@ function UserFooter() {
 export default UserFooter;  
     
                     `);
-            } else if (compType === 'footer') {
-                setCode(`
+    } else if (compType === "footer") {
+      setCode(`
                 
 import './DevDr.css';
 
@@ -210,16 +216,19 @@ function UserFooter() {
 export default UserFooter;  
         
                         `);
-                } else {
-            setCode('');
-        }
-    },[compTitle, compType, compImage, compText, compTheme])
-    
-    return (
-        <code className="code__block"><pre>{ str }
+    } else {
+      setCode("");
+    }
+  }, [compTitle, compType, compImage, compText, compTheme]);
+
+  return (
+    <code className="code__block">
+      <pre>
+        {str}
         {code}
-        </pre></code>
-    );
-};
+      </pre>
+    </code>
+  );
+}
 
 export default CodeBlock;

@@ -1,11 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 import doctor from "../../assets/image/doctor-HRCustom.jpeg";
 import "./landingPage.css";
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
 
 function LandingPage() {
-
   useEffect(() => {
     document.body.style.overflow = "hidden";
   }, []);
@@ -40,7 +39,9 @@ function LandingPage() {
         />
       </div>
       <div className="splash"></div>
-      <a className="credit" href="http://www.freepik.com">Artwork Designed by Cornecoba / Freepik</a>
+      <a className="credit" href="http://www.freepik.com">
+        Artwork Designed by Cornecoba / Freepik
+      </a>
     </main>
   );
 }
