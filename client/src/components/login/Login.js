@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../utils/mutations";
-import './login.css';
+import "./login.css";
 
 import Auth from "../../utils/auth";
 
@@ -47,7 +47,9 @@ function Login(props) {
       <section className="login__card">
         <div>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="loginEmail" className="first__label login__labels">Email</label>
+            <label htmlFor="loginEmail" className="first__label login__labels">
+              Email
+            </label>
             <input
               className="login__input"
               id="loginEmail"
@@ -57,7 +59,9 @@ function Login(props) {
               onChange={handleChange}
             />
             <div>
-              <label htmlFor="loginPass" class="login__labels">Password</label>
+              <label htmlFor="loginPass" class="login__labels">
+                Password
+              </label>
               <input
                 className="login__input"
                 id="loginPass"
@@ -75,14 +79,22 @@ function Login(props) {
               </div>
             ) : null}
             <div>
-              <input className="login__btn" type="submit" value="Log In" onSubmit={handleSubmit} />
+              <input
+                className="login__btn"
+                type="submit"
+                value="Log In"
+                onSubmit={handleSubmit}
+              />
             </div>
           </form>
         </div>
       </section>
       <p className="prompt">
-            Dont already have an account? <Link className="prompt__link" to="/app/signup">Sign up</Link>
-          </p>
+        Dont already have an account?{" "}
+        <Link className="prompt__link" to="/app/signup">
+          Sign up
+        </Link>
+      </p>
     </div>
   );
 }

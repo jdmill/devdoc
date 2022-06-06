@@ -20,7 +20,9 @@ function ProjectEditor() {
   const [state, dispatch] = useEditorContext();
   const [openModal, setOpenModal] = useState(false);
   const [targetId, setTargetId] = useState();
-  const [activeCode, setActiveCode] = useState('Click the render(rend) button next to a component to see its code...');
+  const [activeCode, setActiveCode] = useState(
+    "Click the render(rend) button next to a component to see its code..."
+  );
   // const projectId = localStorage.getItem("projectId");
   const projectId = useParams().projectId;
 
@@ -60,11 +62,11 @@ function ProjectEditor() {
     await window.location.reload();
   };
 
-  const [currentTheme, setCurrentTheme] = useState('Elegant');  
+  const [currentTheme, setCurrentTheme] = useState("Elegant");
 
   const changeTheme = (e) => {
     setCurrentTheme(e.target.name);
-  }
+  };
 
   const [thisCompTitle, setThisCompTitle] = useState();
   const [thisCompType, setThisCompType] = useState();
@@ -72,19 +74,26 @@ function ProjectEditor() {
   const [thisCompText, setThisCompText] = useState();
 
   const renderComp = (e) => {
-    if (activeCode !== '// Click This Box to select all of the code needed to make the component being previewed so you can copy it ') {
-    setActiveCode('// Click This Box to select all of the code needed to make the component being previewed so you can copy it ')
-    setThisCompTitle(e.target.dataset.comptitle);
-    setThisCompType(e.target.dataset.comptype);
-    setThisCompImage(e.target.dataset.compimage);
-    setThisCompText(e.target.dataset.comptext);
-  } else {
-    setActiveCode('Click the render(rend) button next to a component to see its code...');
-    setThisCompTitle();
-    setThisCompType();
-    setThisCompImage();
-    setThisCompText();
-  }
+    if (
+      activeCode !==
+      "// Click This Box to select all of the code needed to make the component being previewed so you can copy it "
+    ) {
+      setActiveCode(
+        "// Click This Box to select all of the code needed to make the component being previewed so you can copy it "
+      );
+      setThisCompTitle(e.target.dataset.comptitle);
+      setThisCompType(e.target.dataset.comptype);
+      setThisCompImage(e.target.dataset.compimage);
+      setThisCompText(e.target.dataset.comptext);
+    } else {
+      setActiveCode(
+        "Click the render(rend) button next to a component to see its code..."
+      );
+      setThisCompTitle();
+      setThisCompType();
+      setThisCompImage();
+      setThisCompText();
+    }
   };
 
   return (
@@ -107,7 +116,12 @@ function ProjectEditor() {
                         key={component._id}
                         name={component._id}
                       >
-                        <p className="project__title">{component.title} <span className="comp__type__label">({component.compType})</span></p>
+                        <p className="project__title">
+                          {component.title}{" "}
+                          <span className="comp__type__label">
+                            ({component.compType})
+                          </span>
+                        </p>
                         <div className="project__icons">
                           <button
                             className="comp__list__btns render"
@@ -144,7 +158,7 @@ function ProjectEditor() {
                                 closeModal={setOpenModal}
                                 compTitle={component.title}
                                 compImage={component.imageUrl}
-                                />
+                              />
                             ) : null}
                             {openModal &&
                             component.compType === "footer" &&
@@ -155,7 +169,7 @@ function ProjectEditor() {
                                 closeModal={setOpenModal}
                                 compTitle={component.title}
                                 compText={component.text}
-                                />
+                              />
                             ) : null}
                             {openModal &&
                             component.compType === "article-photo" &&
@@ -167,7 +181,7 @@ function ProjectEditor() {
                                 compTitle={component.title}
                                 compImage={component.imageUrl}
                                 compText={component.text}
-                                />
+                              />
                             ) : null}
                             {openModal &&
                             component.compType === "contact" &&
@@ -178,7 +192,7 @@ function ProjectEditor() {
                                 closeModal={setOpenModal}
                                 compTitle={component.title}
                                 compText={component.text}
-                                />
+                              />
                             ) : null}
                           </div>
                         </div>
@@ -188,7 +202,7 @@ function ProjectEditor() {
               </ul>
             </section>
           )}
-          {/* TODO: give this codeblock a string containing the code for a component when the "render" button is clicked for a component Clicking render should also target a className "visible" so the code block only appears when it has content in it */} 
+          {/* TODO: give this codeblock a string containing the code for a component when the "render" button is clicked for a component Clicking render should also target a className "visible" so the code block only appears when it has content in it */}
           <CodeBlock
             compTitle={thisCompTitle}
             compType={thisCompType}
@@ -201,32 +215,64 @@ function ProjectEditor() {
         <div className="right__side">
           <div className="top__card">
             <div className="card__header">
-              <h2 className="card__title">
-                Your Toolbox!
-              </h2>
+              <h2 className="card__title">Your Toolbox!</h2>
             </div>
             <p className="tag">Click any component to add it to your project</p>
-            <Toolbox/>
+            <Toolbox />
             <div className="card__header">
-              <h2 className="card__title">
-                Theme Selector
-              </h2>
+              <h2 className="card__title">Theme Selector</h2>
             </div>
             <p className="tag">Current Theme: {currentTheme}</p>
             <div className="button__pool">
-              <button name="Elegant" className="toolbox__button" onClick={changeTheme}>Elegant</button>
-              <button name="Fantasy" className="toolbox__button" onClick={changeTheme}>Fantasy</button>
-              <button name="Navy" className="toolbox__button" onClick={changeTheme}>Navy</button>
-              <button name="News" className="toolbox__button" onClick={changeTheme}>News</button>
-              <button name="Tech" className="toolbox__button" onClick={changeTheme}>Tech</button>
-              <button name="Whimsical" className="toolbox__button" onClick={changeTheme}>Whimsical</button>
+              <button
+                name="Elegant"
+                className="toolbox__button"
+                onClick={changeTheme}
+              >
+                Elegant
+              </button>
+              <button
+                name="Fantasy"
+                className="toolbox__button"
+                onClick={changeTheme}
+              >
+                Fantasy
+              </button>
+              <button
+                name="Navy"
+                className="toolbox__button"
+                onClick={changeTheme}
+              >
+                Navy
+              </button>
+              <button
+                name="News"
+                className="toolbox__button"
+                onClick={changeTheme}
+              >
+                News
+              </button>
+              <button
+                name="Tech"
+                className="toolbox__button"
+                onClick={changeTheme}
+              >
+                Tech
+              </button>
+              <button
+                name="Whimsical"
+                className="toolbox__button"
+                onClick={changeTheme}
+              >
+                Whimsical
+              </button>
             </div>
           </div>
           <div className="bottom__card">
             <div className="card__header">
               <h2 className="card__title">Project Preview</h2>
             </div>
-            <ProjectPreview 
+            <ProjectPreview
               compTitle={thisCompTitle}
               compType={thisCompType}
               compImage={thisCompImage}

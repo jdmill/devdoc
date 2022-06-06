@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import Auth from "../../utils/auth";
 import { ADD_USER } from "../../utils/mutations";
-import '../login/login.css';
+import "../login/login.css";
 
 function SignUp() {
   const [formState, setFormState] = useState({ email: "", password: "" });
@@ -35,7 +35,12 @@ function SignUp() {
       <section className="login__card">
         <form onSubmit={handleFormSubmit}>
           <div>
-            <label htmlFor="signupUsername" className="first__label login__labels">Username</label>
+            <label
+              htmlFor="signupUsername"
+              className="first__label login__labels"
+            >
+              Username
+            </label>
             <input
               className="login__input"
               id="signupUsername"
@@ -46,7 +51,9 @@ function SignUp() {
             />
           </div>
           <div>
-            <label htmlFor="signupEmail" class="login__labels">Email</label>
+            <label htmlFor="signupEmail" class="login__labels">
+              Email
+            </label>
             <input
               className="login__input"
               id="signupEmail"
@@ -57,7 +64,9 @@ function SignUp() {
             />
           </div>
           <div>
-            <label htmlFor="signupPass" class="login__labels">Password</label>
+            <label htmlFor="signupPass" class="login__labels">
+              Password
+            </label>
             <input
               className="login__input"
               id="signupPass"
@@ -68,17 +77,29 @@ function SignUp() {
             />
           </div>
           <div>
-            <label htmlFor="confirmPass" class="login__labels">Confirm Password</label>
-            <input  className="login__input" id="confirmPass" type="password" name="confirmPassword" />
+            <label htmlFor="confirmPass" class="login__labels">
+              Confirm Password
+            </label>
+            <input
+              className="login__input"
+              id="confirmPass"
+              type="password"
+              name="confirmPassword"
+            />
           </div>
           <div>
-            <button className="login__btn" type="submit">Submit</button>
+            <button className="login__btn" type="submit">
+              Submit
+            </button>
           </div>
         </form>
       </section>
       <p className="prompt">
-          Already have an account? <Link className="prompt__link" to="/app/login">Log in</Link>
-        </p>
+        Already have an account?{" "}
+        <Link className="prompt__link" to="/app/login">
+          Log in
+        </Link>
+      </p>
     </div>
   );
 }

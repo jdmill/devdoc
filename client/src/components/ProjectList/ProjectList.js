@@ -9,13 +9,13 @@ const ProjectList = ({ user }) => {
   const HandleEditRequest = async (e) => {
     const projectId = e.target.name;
     try {
-      const prevProj = await localStorage.getItem('projectId');
+      const prevProj = await localStorage.getItem("projectId");
       if (prevProj) {
-        localStorage.removeItem('projectId')
+        localStorage.removeItem("projectId");
       }
     } catch (err) {
-      console.log('no existing project');
-    };
+      console.log("no existing project");
+    }
     localStorage.setItem("projectId", projectId);
     await window.location.assign(`/app/projects/${projectId}`);
     //console.log(`You clicked edit for project ID: ${projectId}`);
