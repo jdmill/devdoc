@@ -48,7 +48,7 @@ export default function UserGuide() {
           <br />
           <span style={{ color: "#fac863" }}>cd</span> components
         </div>
-        <h3>Include App.css in the folder your component is located</h3>
+        <h3>Include DevDr.css in the folder your component is located</h3>
         <p>
           Save this{" "}
           <a href={CSS} target="_blank" rel="noreferrer">
