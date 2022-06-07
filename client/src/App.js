@@ -21,6 +21,7 @@ import UserGuide from "./components/userGuide/UserGuide";
 import MyProjects from "./components/myProjects/MyProjects";
 import ProjectEditor from "./components/projectEditor/ProjectEditor";
 import ComponentEditor from "./components/componentEditor/ComponentEditor";
+import ProjectFullPreview from './components/projectFullPreview/ProjectFullPreview';
 import { EditorProvider } from "./utils/EditorState";
 
 import Playground from './userComps/stylePlayground/StylePlayground'; // delete after setting up all user styles and components, or configure as a route for users to see and browse available styles
@@ -69,6 +70,7 @@ function App() {
               <Route path="projects" element={<MyProjects />} />
 
               <Route path="projects/:projectId" element={<ProjectEditor />} />
+              <Route path="projects/:projectId/:theme" element={<ProjectFullPreview />} />
               <Route
                 path="projects/:projectId/:componentId"
                 element={<ComponentEditor />}

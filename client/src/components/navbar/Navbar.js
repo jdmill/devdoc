@@ -27,6 +27,9 @@ function Navbar() {
         </ul>
       ) : (
         <ul className="nav__list">
+          <Link className="nav__item" to="/">
+            Home
+          </Link>
           <Link className="nav__item" to="/app/userGuide">
             User Guide
           </Link>

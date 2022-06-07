@@ -1,6 +1,11 @@
+import { useEffect } from 'react';
 import "./userGuide.css";
 import CSS from "./DevDr.txt";
 export default function UserGuide() {
+  useEffect(() => {
+    document.body.style.overflow = "scroll";
+  }, []);
+
   return (
     <div className="userguide__container">
       <div className="guide__card">
@@ -50,12 +55,8 @@ export default function UserGuide() {
         </div>
         <h3>Include DevDr.css in the folder your component is located</h3>
         <p>
-          Save this{" "}
-          <a href={CSS} target="_blank" rel="noreferrer">
-            file
-          </a>
-          , name it DevDr.css, and include it at the same level as your
-          MyComponent.js file{" "}
+          Save this <a href={CSS} download="DevDr.css">stylesheet</a> and include it at the same level as your
+          MyComponent.js file.
         </p>
         <h3>
           Once you've customized a component using our app, copy the code and
