@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEditorContext } from "../../utils/EditorState";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_PROJECT } from "../../utils/queries";
@@ -200,9 +200,15 @@ function ProjectEditor() {
                     );
                   })}
               </ul>
+              <div className="button__pool">
+                <Link to={`/app/projects/${projectId}/${currentTheme}`}>
+                  <button className="toolbox__button">
+                    Preview Entire Project w/ current theme
+                  </button>
+                </Link>
+              </div>
             </section>
           )}
-          {/* TODO: give this codeblock a string containing the code for a component when the "render" button is clicked for a component Clicking render should also target a className "visible" so the code block only appears when it has content in it */}
           <CodeBlock
             compTitle={thisCompTitle}
             compType={thisCompType}
@@ -270,7 +276,7 @@ function ProjectEditor() {
           </div>
           <div className="bottom__card">
             <div className="card__header">
-              <h2 className="card__title">Project Preview</h2>
+              <h2 className="card__title">Component Preview</h2>
             </div>
             <ProjectPreview
               compTitle={thisCompTitle}
