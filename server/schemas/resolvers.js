@@ -160,7 +160,75 @@ const resolvers = {
         { new: true } // return the project post update
       );
       
-      console.log("edit component ran");
+      return editedProj; //return the project
+    },
+
+    compDown: async (parent, { project_id, component_id }, context ) => {
+      const proj = await Project.findOne({ _id: project_id }); // go get the whole project (target by id)
+      const compArr = proj.componentArray; // set its componentArray to a variable
+      const upperLimit = compArr.length - 1; // -1 because we are calling the limit of an index 0 scenario
+
+      const myIndex = compArr.findIndex(el => { // function to return the index in which conditions apply...
+        if (el.id === component_id) { // match by id...
+          return true;
+        };
+        return false;
+      })
+
+      let newCompArr = [];
+
+      if (myIndex < upperLimit) { // if the things we want to move isn't already at the top
+        const myEl = compArr[myIndex]; // save the current info of the component
+        // the syntax for an "arr.splice()" is Param 1: starting index, Param 2: delete count, Param 3: Insertion
+        compArr.splice(myIndex, 1) // remove our element from array
+        compArr.splice((myIndex+1), 0, myEl) // go forward one index number and put the element back in
+        newCompArr = compArr; // set the output variable to our array
+      } else {
+        newCompArr = compArr; // just return the array as it was
+      };
+
+
+      const editedProj = await Project.findOneAndUpdate(
+        { _id: project_id }, // target by id
+        {
+          $set: { componentArray: newCompArr }, // new array with new ordering
+        },
+        { new: true } // return the project post update
+      );
+
+      return editedProj; //return the project
+    },
+    compUp: async (parent, { project_id, component_id }, context ) => {
+      const proj = await Project.findOne({ _id: project_id }); // go get the whole project (target by id)
+      const compArr = proj.componentArray; // set its componentArray to a variable
+
+      const myIndex = compArr.findIndex(el => { // function to return the index in which conditions apply...
+        if (el.id === component_id) { // match by id...
+          return true;
+        };
+        return false;
+      })
+
+      let newCompArr = [];
+
+      if (myIndex > 0) { // if this is not already the first element in the array
+        const myEl = compArr[myIndex]; // save the current info of the component
+        // the syntax for an "arr.splice()" is Param 1: starting index, Param 2: delete count, Param 3: Insertion
+        compArr.splice(myIndex, 1) // remove our element from array
+        compArr.splice((myIndex-1), 0, myEl) // go backward one index number and put the element back in
+        newCompArr = compArr; // set the output variable to our array
+      } else {
+        newCompArr = compArr; // just return the array as it was
+      };
+
+      const editedProj = await Project.findOneAndUpdate(
+        { _id: project_id }, // target by id
+        {
+          $set: { componentArray: newCompArr }, // new array with new ordering
+        },
+        { new: true } // return the project post update
+      );
+
       return editedProj; //return the project
     },
   },

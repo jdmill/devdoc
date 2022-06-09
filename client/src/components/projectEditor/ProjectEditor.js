@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { useEditorContext } from "../../utils/EditorState";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_PROJECT } from "../../utils/queries";
-import { REMOVE_COMPONENT } from "../../utils/mutations";
+import { REMOVE_COMPONENT, COMP_UP, COMP_DOWN } from "../../utils/mutations";
 // import { useState } from "react";
 import { ADD_PROJECT } from "../../utils/actions";
 import Toolbox from "../toolbox/Toolbox";
@@ -47,6 +47,8 @@ function ProjectEditor() {
   }, [data, dispatch, loading]);
 
   const [removeComponent, { error }] = useMutation(REMOVE_COMPONENT);
+  const [moveComponentUp, { upError }] = useMutation(COMP_UP);
+  const [moveComponentDown, { downError }] = useMutation(COMP_DOWN);
 
   const HandleEditRequest = async (e) => {
     const componentId = e.target.name;
@@ -57,6 +59,22 @@ function ProjectEditor() {
   const HandleDeleteRequest = async (e) => {
     const componentId = e.target.name;
     await removeComponent({
+      variables: { projectId: projectId, componentId: componentId },
+    });
+    await window.location.reload();
+  };
+
+  const HandleShiftUpRequest = async (e) => {
+    const componentId = e.target.name;
+    await moveComponentUp({
+      variables: { projectId: projectId, componentId: componentId },
+    });
+    await window.location.reload();
+  };
+
+  const HandleShiftDownRequest = async (e) => {
+    const componentId = e.target.name;
+    await moveComponentDown({
       variables: { projectId: projectId, componentId: componentId },
     });
     await window.location.reload();
@@ -148,6 +166,22 @@ function ProjectEditor() {
                           >
                             Del
                           </button>
+                          <div className="shift__buttons">
+                            <button
+                              className="list__btns edit"
+                              name={component._id}
+                              onClick={HandleShiftUpRequest}
+                            >
+                              UP
+                            </button>
+                            <button
+                              className="list__btns edit"
+                              name={component._id}
+                              onClick={HandleShiftDownRequest}
+                            >
+                              DWN
+                            </button>
+                          </div>
                           <div>
                             {openModal &&
                             component.compType === "header" &&
