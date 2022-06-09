@@ -63,6 +63,8 @@ const typeDefs = gql`
       imageUrl: String
       text: String
     ): Component
+    compUp(project_id: ID!, component_id: ID!): Component
+    compDown(project_id: ID!, component_id: ID!): Component
   }
 `;
 

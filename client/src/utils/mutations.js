@@ -73,3 +73,25 @@ mutation RemoveComponent($projectId: ID!, $componentId: ID!) {
   }
 }
 `;
+
+export const COMP_UP = gql`
+mutation EditComponent($projectId: ID!, $componentId: ID!) {
+  compUp(project_id: $projectId, component_id: $componentId) {
+    _id
+    title
+    imageUrl
+    text
+  }
+}
+`;
+
+export const COMP_DOWN = gql`
+mutation EditComponent($projectId: ID!, $componentId: ID!) {
+  compDown(project_id: $projectId, component_id: $componentId) {
+    _id
+    title
+    imageUrl
+    text
+  }
+}
+`;
