@@ -6,6 +6,13 @@ import { QUERY_PROJECT } from "../../utils/queries";
 import { REMOVE_COMPONENT, COMP_UP, COMP_DOWN } from "../../utils/mutations";
 // import { useState } from "react";
 import { ADD_PROJECT } from "../../utils/actions";
+import {
+  AiFillEdit,
+  AiFillDelete,
+  AiFillEye,
+  AiOutlineArrowUp,
+  AiOutlineArrowDown,
+} from "react-icons/ai";
 import Toolbox from "../toolbox/Toolbox";
 import ProjectPreview from "../projectPreview/ProjectPreview";
 import EFArticlePhoto from "../editorForm/EFArticle-photo";
@@ -149,7 +156,7 @@ function ProjectEditor() {
                             data-compimage={component.imageUrl}
                             data-comptext={component.text}
                           >
-                            Rend
+                            <AiFillEye size={20} />
                           </button>
                           <button
                             className="list__btns edit"
@@ -157,14 +164,14 @@ function ProjectEditor() {
                             value={component.compType}
                             onClick={HandleEditRequest}
                           >
-                            Edit
+                            <AiFillEdit size={20} />
                           </button>
                           <button
                             className="list__btns delete"
                             name={component._id}
                             onClick={HandleDeleteRequest}
                           >
-                            Del
+                            <AiFillDelete size={20} />
                           </button>
                           <div className="shift__buttons">
                             <button
@@ -172,14 +179,14 @@ function ProjectEditor() {
                               name={component._id}
                               onClick={HandleShiftUpRequest}
                             >
-                              UP
+                              <AiOutlineArrowUp size={20} />
                             </button>
                             <button
                               className="list__btns edit"
                               name={component._id}
                               onClick={HandleShiftDownRequest}
                             >
-                              DWN
+                              <AiOutlineArrowDown size={20} />
                             </button>
                           </div>
                           <div>

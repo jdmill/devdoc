@@ -1,5 +1,6 @@
 import { useMutation } from "@apollo/client";
 import { REMOVE_PROJECT } from "../../utils/mutations";
+import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { useQuery } from "@apollo/client";
 import { QUERY_PROJECT } from "../../utils/queries";
 
@@ -52,14 +53,14 @@ const ProjectList = ({ user }) => {
                 name={project._id}
                 onClick={HandleEditRequest}
               >
-                Edit
+                <AiFillEdit size={20} />
               </button>
               <button
                 className="list__btns delete"
                 name={project._id}
                 onClick={HandleDeleteRequest}
               >
-                Delete
+                <AiFillDelete size={20} />
               </button>
             </div>
           </li>
